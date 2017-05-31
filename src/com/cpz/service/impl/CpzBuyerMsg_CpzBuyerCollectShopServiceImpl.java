@@ -1,5 +1,4 @@
 package com.cpz.service.impl;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,12 +13,9 @@ import com.cpz.pojo.CpzBuyerMsgBean;
 import com.framework.dao.BaseDao;
 import com.framework.dao.common.DaoTools;
 import com.framework.exception.CommonException;
-import com.tccp.persistence.UserMapper;
 @Service("CpzBuyerMsg_CpzBuyerCollectShopService")
 public class CpzBuyerMsg_CpzBuyerCollectShopServiceImpl implements CpzBuyerMsg_CpzBuyerCollectShopService {
 	//private final static Logger logger = LoggerFactory.getLogger(ErrorServiceImpl.class);
-	
-
 	
 	@Resource
 	private CpzBuyerMsgMapper mapper;
@@ -28,9 +24,7 @@ public class CpzBuyerMsg_CpzBuyerCollectShopServiceImpl implements CpzBuyerMsg_C
 	public CpzBuyerMsgBean get() throws Exception {
 		// TODO Auto-generated method stub
 		Map<String,Object> m = new HashMap();
-		
-		return mapper.CpzBuyerMsgSelect();
-	
+return mapper.CpzBuyerMsgSelect();
 	}
 }
 

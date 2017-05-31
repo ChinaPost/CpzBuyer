@@ -1,5 +1,4 @@
 package com.cpz.pojo;
-
 public class CpzBuyerMsgBean {
 	private Integer userId;
 	public Integer getUserId() {
