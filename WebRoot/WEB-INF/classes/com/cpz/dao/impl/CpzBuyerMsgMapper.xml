@@ -2,17 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cpz.dao.impl.CpzBuyerMsgMapper">
 	<resultMap id="CpzBuyerMsgResultMap" type="com.cpz.pojo.CpzBuyerMsgBean">
-		<result column="userId" property="userId" />
-		<result column="moileNo" property="moileNo" />
-		<result column="nickName" property="nickName" />
-		<collection property="CpzBuyerCollectShop" ofType="com.cpz.pojo.CpzBuyerCollectShopBean">
-		</collection>
+<result column="userId" property="userId" />
+<result column="moileNo" property="moileNo" />
+<result column="nickName" property="nickName" />
+<result column="sex" property="sex" />
+	 <collection property="CpzBuyerCollectShop" ofType="com.cpz.pojo.CpzBuyerCollectShopBean">
+</collection>
 	</resultMap>
-
-	<select id="CpzBuyerMsgSelect" resultMap="CpzBuyerMsgResultMap">
-		select CpzBuyerMsg.userId, CpzBuyerMsg.moileNo, CpzBuyerMsg.nickName
-		from CpzBuyerCollectShop inner join CpzBuyerMsg on
-		CpzBuyerCollectShop.userId=CpzBuyerMsg.userId
-	</select>
+	<select id="CpzBuyerMsgSelect" resultMap="CpzBuyerMsgResultMap" >
+select  t_cpz_buyer_msg.userId, t_cpz_buyer_msg.moileNo, t_cpz_buyer_msg.nickName, t_cpz_buyer_msg.sex from t_cpz_buyer_collect_shop inner join t_cpz_buyer_msg on t_cpz_buyer_collect_shop.userId=t_cpz_buyer_msg.userId	</select>
 </mapper>
 
