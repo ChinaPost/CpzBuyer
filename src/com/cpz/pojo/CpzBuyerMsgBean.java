@@ -1,5 +1,19 @@
 package com.cpz.pojo;
+
+import java.util.List;
+
 public class CpzBuyerMsgBean {
+	
+	
+	List<CpzBuyerCollectShopBean> CpzBuyerCollectShop;
+	
+	public List<CpzBuyerCollectShopBean> getCpzBuyerCollectShop() {
+		return CpzBuyerCollectShop;
+	}
+	public void setCpzBuyerCollectShop(
+			List<CpzBuyerCollectShopBean> cpzBuyerCollectShop) {
+		CpzBuyerCollectShop = cpzBuyerCollectShop;
+	}
 	private Integer userId;
 	public Integer getUserId() {
 		return userId;

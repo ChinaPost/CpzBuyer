@@ -34,6 +34,7 @@ private CpzBuyerMsg_CpzBuyerCollectShopService cpzBuyerMsg_CpzBuyerCollectShopSe
 CpzBuyerMsgBean cpzbuyermsgBean=null;
 try {
 cpzbuyermsgBean=cpzBuyerMsg_CpzBuyerCollectShopService.get();
+String m="";
 } catch (Exception e) {
 	e.printStackTrace();
 }
