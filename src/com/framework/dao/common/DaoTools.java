@@ -15,7 +15,7 @@ import com.framework.utils.PaginationBase;
  * @version 2016年5月11日 上午10:22:53 类说明 dao 层必要的共公方法类
  */
 public class DaoTools {
-	private final static String pak = "com.sp.dao.impl";
+	private final static String pak = "com.cpz.dao.impl";
 	
 	private final static Random rd = new Random();
 	private final static SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmssSSS");

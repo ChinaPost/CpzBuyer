@@ -72,4 +72,6 @@
 	 -->
 	<tx:annotation-driven transaction-manager="txManager" />
 
+	<bean id="springUtilInitializer" class="com.framework.utils.SpringBeanManger"
+		lazy-init="false" />
 </beans>
