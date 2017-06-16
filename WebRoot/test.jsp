@@ -14,6 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   	<a href="<%=basePath%>/front/cpzbuyermsg_cpzbuyercollectshop/query.do">首页，点击进入tccp测试页</a></h5>
+   	<a href="<%=basePath%>/front/m/query.do">首页，点击进入tccp测试页</a></h5>
   </body>
 </html>

@@ -1,11 +1,13 @@
 package com.cpz.pojo;
 public class CpzBuyerCollectShopBean {
+
 	public Integer userId;/**用户id*/
 	public Integer shopId;/**店铺代号*/
 	public Integer marketId;/**店铺所在市场代号*/
 	public Integer shopBusineeRangeId;/**店铺经营范围表id*/
 	public String isDefaultShop;/**是否默认店铺0：否1：是*/
 	public String colletcTime;/**收藏时间*/
+
 	public Integer getUserId() {
 		return userId;
 	}
