@@ -6,10 +6,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -28,7 +26,7 @@ import com.framework.utils.CommonUtil;
 import com.framework.utils.Constant;
 import com.framework.utils.SpringBeanManger;
 
-/** 接口 */
+/** 那会 */
 @Controller
 @Scope("prototype")
 @RequestMapping("/m")
@@ -37,45 +35,34 @@ public class MController extends BaseController {
 	private MService mService;
 
 	@RequestMapping("/query.do")
-	public @ResponseBody
-	Map<String, Object> query(@RequestParam Map reqMap) {
+	public @ResponseBody Map<String, Object> query(@RequestParam Map reqMap) {
 		// if (null == reqMap || reqMap.isEmpty())
 		// return CommonUtil.ReturnWarp(Constant.TRAN_PARAERCODE,
 		// Constant.ERRORTYPE);
 		int shopBusineeRangeId = reqMap.get("shopBusineeRangeId") == null ? 0
 				: Integer.valueOf(reqMap.get("shopBusineeRangeId").toString());
 		List<CpzBuyerCollectShopBean> cpzbuyercollectshopBeans = null;
-
 		try {
 			cpzbuyercollectshopBeans = mService.get(shopBusineeRangeId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		Map r = new HashMap();
-		r.put("json", cpzbuyercollectshopBeans);
-		
-		return CommonUtil.ReturnWarp(Constant.TRAN_SUCCESS, Constant.ERRORTYPE,
-				"", r);
+		r.put("returnData", cpzbuyercollectshopBeans);
+		return CommonUtil.ReturnWarp(Constant.TRAN_SUCCESS, Constant.ERRORTYPE, "", r);
 	}
 
 	@RequestMapping("/insert.do")
-	public @ResponseBody
-	Map<String, Object> insert(@RequestParam Map reqMap) {
+	public @ResponseBody Map<String, Object> insert(@RequestParam Map reqMap) {
 		if (null == reqMap || reqMap.isEmpty())
-			return CommonUtil.ReturnWarp(Constant.TRAN_PARAERCODE,
-					Constant.ERRORTYPE);
-		int userId = reqMap.get("userId") == null ? 0 : Integer.valueOf(reqMap
-				.get("userId").toString());
-		int shopId = reqMap.get("shopId") == null ? 0 : Integer.valueOf(reqMap
-				.get("shopId").toString());
-		int marketId = reqMap.get("marketId") == null ? 0 : Integer
-				.valueOf(reqMap.get("marketId").toString());
+			return CommonUtil.ReturnWarp(Constant.TRAN_PARAERCODE, Constant.ERRORTYPE);
+		int userId = reqMap.get("userId") == null ? 0 : Integer.valueOf(reqMap.get("userId").toString());
+		int shopId = reqMap.get("shopId") == null ? 0 : Integer.valueOf(reqMap.get("shopId").toString());
+		int marketId = reqMap.get("marketId") == null ? 0 : Integer.valueOf(reqMap.get("marketId").toString());
 		int shopBusineeRangeId = reqMap.get("shopBusineeRangeId") == null ? 0
 				: Integer.valueOf(reqMap.get("shopBusineeRangeId").toString());
-		String isDefaultShop = reqMap.get("isDefaultShop") == null ? null
-				: reqMap.get("isDefaultShop").toString();
-		String colletcTime = reqMap.get("colletcTime") == null ? null : reqMap
-				.get("colletcTime").toString();
+		String isDefaultShop = reqMap.get("isDefaultShop") == null ? null : reqMap.get("isDefaultShop").toString();
+		String colletcTime = reqMap.get("colletcTime") == null ? null : reqMap.get("colletcTime").toString();
 		CpzBuyerCollectShopBean cpzbuyercollectshopBean = new CpzBuyerCollectShopBean();
 		cpzbuyercollectshopBean.userId = userId;
 		cpzbuyercollectshopBean.shopId = shopId;
@@ -92,23 +79,16 @@ public class MController extends BaseController {
 	}
 
 	@RequestMapping("/update.do")
-	public @ResponseBody
-	Map<String, Object> update(@RequestParam Map reqMap) {
+	public @ResponseBody Map<String, Object> update(@RequestParam Map reqMap) {
 		if (null == reqMap || reqMap.isEmpty())
-			return CommonUtil.ReturnWarp(Constant.TRAN_PARAERCODE,
-					Constant.ERRORTYPE);
-		int userId = reqMap.get("userId") == null ? 0 : Integer.valueOf(reqMap
-				.get("userId").toString());
-		int shopId = reqMap.get("shopId") == null ? 0 : Integer.valueOf(reqMap
-				.get("shopId").toString());
-		int marketId = reqMap.get("marketId") == null ? 0 : Integer
-				.valueOf(reqMap.get("marketId").toString());
+			return CommonUtil.ReturnWarp(Constant.TRAN_PARAERCODE, Constant.ERRORTYPE);
+		int userId = reqMap.get("userId") == null ? 0 : Integer.valueOf(reqMap.get("userId").toString());
+		int shopId = reqMap.get("shopId") == null ? 0 : Integer.valueOf(reqMap.get("shopId").toString());
+		int marketId = reqMap.get("marketId") == null ? 0 : Integer.valueOf(reqMap.get("marketId").toString());
 		int shopBusineeRangeId = reqMap.get("shopBusineeRangeId") == null ? 0
 				: Integer.valueOf(reqMap.get("shopBusineeRangeId").toString());
-		String isDefaultShop = reqMap.get("isDefaultShop") == null ? null
-				: reqMap.get("isDefaultShop").toString();
-		String colletcTime = reqMap.get("colletcTime") == null ? null : reqMap
-				.get("colletcTime").toString();
+		String isDefaultShop = reqMap.get("isDefaultShop") == null ? null : reqMap.get("isDefaultShop").toString();
+		String colletcTime = reqMap.get("colletcTime") == null ? null : reqMap.get("colletcTime").toString();
 		CpzBuyerCollectShopBean cpzbuyercollectshopBean = new CpzBuyerCollectShopBean();
 		cpzbuyercollectshopBean.userId = userId;
 		cpzbuyercollectshopBean.shopId = shopId;
@@ -125,15 +105,11 @@ public class MController extends BaseController {
 	}
 
 	@RequestMapping("/delete.do")
-	public @ResponseBody
-	Map<String, Object> delete(@RequestParam Map reqMap) {
+	public @ResponseBody Map<String, Object> delete(@RequestParam Map reqMap) {
 		if (null == reqMap || reqMap.isEmpty())
-			return CommonUtil.ReturnWarp(Constant.TRAN_PARAERCODE,
-					Constant.ERRORTYPE);
-		int userId = reqMap.get("userId") == null ? 0 : Integer.valueOf(reqMap
-				.get("userId").toString());
-		int shopId = reqMap.get("shopId") == null ? 0 : Integer.valueOf(reqMap
-				.get("shopId").toString());
+			return CommonUtil.ReturnWarp(Constant.TRAN_PARAERCODE, Constant.ERRORTYPE);
+		int userId = reqMap.get("userId") == null ? 0 : Integer.valueOf(reqMap.get("userId").toString());
+		int shopId = reqMap.get("shopId") == null ? 0 : Integer.valueOf(reqMap.get("shopId").toString());
 		CpzBuyerCollectShopBean cpzbuyercollectshopBean = new CpzBuyerCollectShopBean();
 		cpzbuyercollectshopBean.userId = userId;
 		cpzbuyercollectshopBean.shopId = shopId;
