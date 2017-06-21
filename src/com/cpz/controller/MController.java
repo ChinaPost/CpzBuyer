@@ -1,5 +1,5 @@
 
-package com.cpz.controller.front;
+package com.cpz.controller;
 
 import java.util.HashMap;
 import java.util.List;
