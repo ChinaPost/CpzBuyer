@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cpz.dao.impl.BuyerPoductSeachMapper">
+	<resultMap id="BuyerPoductSeachResultMap" type="com.cpz.pojo.BuyerPoductSeachBean">
+<result column="productID" property="productID" />
+<result column="productName" property="productName" />
+<result column="productCategoryId" property="productCategoryId" />
+<result column="productType" property="productType" />
+<result column="productStatus" property="productStatus" />
+<result column="tradingUnit" property="tradingUnit" />
+<result column="productColor" property="productColor" />
+<result column="productDetail" property="productDetail" />
+	 <collection property="cpzProductLevels" ofType="com.cpz.pojo.CpzProductLevelBean">
+</collection>
+	 <collection property="gspProductNormsMaps" ofType="com.cpz.pojo.GspProductNormsMapBean">
+</collection>
+	 <collection property="cpzPlatProductPics" ofType="com.cpz.pojo.CpzPlatProductPicBean">
+<result column="picName" property="picName" />
+<result column="picNorms" property="picNorms" />
+<result column="picUrl" property="picUrl" />
+</collection>
+	 <collection property="cpzPlatProductNormss" ofType="com.cpz.pojo.CpzPlatProductNormsBean">
+</collection>
+	</resultMap>
+	<select id="BuyerPoductSeachSelect" resultMap="BuyerPoductSeachResultMap" >
+select  t_cpz_plat_product.productID, t_cpz_plat_product.productName, t_cpz_plat_product.productCategoryId, t_cpz_plat_product.productType, t_cpz_plat_product.productStatus, t_cpz_plat_product.tradingUnit, t_cpz_plat_product.productColor, t_cpz_plat_product.productDetail, t_cpz_plat_product_pic.picName, t_cpz_plat_product_pic.picNorms, t_cpz_plat_product_pic.picUrl from t_gsp_product_norms_map inner join t_cpz_plat_product on t_gsp_product_norms_map.shopProductId=t_cpz_plat_product.productIDt_cpz_plat_product inner join t_cpz_product_level on t_cpz_plat_product.productCategoryId=t_cpz_product_level.productCategoryIdt_cpz_plat_product_pic inner join t_cpz_plat_product on t_cpz_plat_product_pic.productId=t_cpz_plat_product.productID where 		<if test="productName!= null ">
+ t_cpz_plat_product.productName= #{productName}
+		</if>
+		<if test="productType!= null ">
+ and t_cpz_plat_product.productType= #{productType}
+		</if>
+	</select>
+</mapper>
+
