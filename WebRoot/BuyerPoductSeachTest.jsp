@@ -48,7 +48,9 @@ $("#pageContent").html(jsonstr);
 		
 		function doAdd(){
 		var addInp=	$("#addIn").val();
-var requesturl='http://localhost:8080/m/insert.do'+addInp;
+var pathName=window.document.location.pathname;
+		var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1); 
+var requesturl='http://localhost:8080/'+projectName+'/buyerpoductseach/insert.do'+addInp;
 			
 				$.ajax({
 					type:'POST',
@@ -71,7 +73,9 @@ $("#pageContent").html(jsonstr);
 		
 		function doUpdate(){
 			var updateInp= $("#updateIn").val();
-var requesturl='http://localhost:8080/m/update.do'+updateInp;
+var pathName=window.document.location.pathname;
+		var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1); 
+var requesturl='http://localhost:8080/'+projectName+'/buyerpoductseach/update.do'+updateInp;
 			
 				$.ajax({
 					type:'POST',
@@ -92,7 +96,9 @@ $("#pageContent").html(jsonstr);
 		}
 		function doDelete(code){
 		var 	deleteInp=$("#deleteIn").val();
-var requesturl='http://localhost:8080/m/delete.do'+deleteInp;
+var pathName=window.document.location.pathname;
+		var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1); 
+var requesturl='http://localhost:8080/'+projectName+'/buyerpoductseach/delete.do'+deleteInp;
 			
 				$.ajax({
 					type:'POST',
@@ -124,18 +130,18 @@ $("#pageContent").html(jsonstr);
 	<input type="button" value="查询" id="search" name = "search" onmouseover="this.style.cursor='hand'" style="width:50px;height:20px;font-size:12px;"  onclick="doSearch()">
 	</div>
 	
-	<div style="padding-left:20px;margin-bottom:10px;" >
+	<div style="padding-left:20px;margin-bottom:10px;display:none;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	新增urlPara：<input type="text" id="addIn" style="margin-left:10px;width:800px;height:20px; " value=""/>
 	<input type="button" value="新增" id="search" name = "search" onmouseover="this.style.cursor='hand'" style="width:50px;height:20px;font-size:12px;"  onclick="doAdd()">
 	</div>
 	
-	<div style="padding-left:20px;margin-bottom:10px;" >
+	<div style="padding-left:20px;margin-bottom:10px;display:none;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	修改urlPara：<input type="text" id="updateIn" style="margin-left:10px;width:800px;height:20px; " value=""/>
 	<input type="button" value="修改" id="search" name = "search" onmouseover="this.style.cursor='hand'" style="width:50px;height:20px;font-size:12px;"  onclick="doUpdate()">
 	</div>
-	<div style="padding-left:20px;margin-bottom:10px;" >
+	<div style="padding-left:20px;margin-bottom:10px;display:none;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	删除urlPara：<input type="text" id="deleteIn" style="margin-left:10px;width:800px;height:20px; " value=""/>
 	<input type="button" value="删除" id="search" name = "search" onmouseover="this.style.cursor='hand'" style="width:50px;height:20px;font-size:12px;"  onclick="doDelete()">
