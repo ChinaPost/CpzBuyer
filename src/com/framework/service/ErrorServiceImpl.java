@@ -9,10 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.cpz.pojo.ErrorInfo;
 import com.framework.dao.BaseDao;
 import com.framework.dao.common.DaoTools;
 import com.framework.exception.CommonException;
+import com.framework.pojo.ErrorInfo;
 
 
 /** 

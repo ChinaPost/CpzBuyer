@@ -1,7 +1,7 @@
 package com.framework.service;
 
-import com.cpz.pojo.ErrorInfo;
 import com.framework.exception.CommonException;
+import com.framework.pojo.ErrorInfo;
 
 
 /** 

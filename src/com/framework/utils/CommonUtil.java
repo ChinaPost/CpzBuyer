@@ -8,9 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.cpz.pojo.ErrorInfo;
-
 import com.framework.exception.CommonException;
+import com.framework.pojo.ErrorInfo;
 import com.framework.pojo.Ret;
 import com.framework.service.ErrorService;
 import com.framework.utils.SpringBeanManger;

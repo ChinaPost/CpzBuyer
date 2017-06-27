@@ -1,4 +1,4 @@
-package com.cpz.pojo;
+package com.framework.pojo;
 
 public class ErrorInfo {
 	private Integer id;
