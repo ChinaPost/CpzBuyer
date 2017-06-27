@@ -4,7 +4,8 @@
 	<resultMap id="CpzBuyerCollectShopResultMap" type="com.cpz.pojo.CpzBuyerCollectShopBean">
 	</resultMap>
 	<select id="CpzBuyerCollectShopSelect" resultMap="CpzBuyerCollectShopResultMap" >
-select * from t_cpz_buyer_collect_shop where
+select * from t_cpz_buyer_collect_shop  
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
 <if test="userId!= null ">
  t_cpz_buyer_collect_shop.userId= #{userId}
 		</if>
@@ -23,6 +24,7 @@ select * from t_cpz_buyer_collect_shop where
 		<if test="colletcTime!= null ">
  and t_cpz_buyer_collect_shop.colletcTime= #{colletcTime}
 		</if>
+		</trim>
 	</select>
 
 

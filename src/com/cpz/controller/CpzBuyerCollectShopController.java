@@ -35,7 +35,10 @@ public class CpzBuyerCollectShopController extends BaseController {
 private CpzBuyerCollectShopService cpzBuyerCollectShopService;
 	@RequestMapping("/query.do")
 	public @ResponseBody Map<String, Object> query(@RequestParam Map reqMap) {
-		//if (null == reqMap || reqMap.isEmpty())
+		if (null == reqMap || reqMap.isEmpty())
+		{
+			reqMap=new HashMap();
+		}
 			//return CommonUtil.ReturnWarp(Constant.TRAN_PARAERCODE, Constant.ERRORTYPE);
 List<CpzBuyerCollectShopBean> cpzbuyercollectshopBeans=null;
 try {
