@@ -23,7 +23,9 @@
 		
 		function doSearch(){
 		var searchInp=	$("#searchIn").val();
-var requesturl='http://localhost:8080/m/query.do'+searchInp;
+		var pathName=window.document.location.pathname;
+		var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1); 
+var requesturl='http://localhost:8080/'+projectName+'/buyerpoductseach/query.do'+searchInp;
 			
 				$.ajax({
 					type:'POST',

@@ -35,7 +35,8 @@
 </collection>
 	</resultMap>
 	<select id="BuyerPoductSeachSelect" resultMap="BuyerPoductSeachResultMap" >
-select  * from t_cpz_plat_product inner join t_cpz_product_level on t_cpz_product_level.productCategoryId=t_cpz_plat_product.productCategoryId inner join t_cpz_plat_product_pic on t_cpz_plat_product_pic.productId=t_cpz_plat_product.productID inner join t_cpz_plat_product_norms on t_cpz_plat_product_norms.productId=t_cpz_plat_product.productID where 		<if test="productName!= null ">
+select  * from t_cpz_plat_product inner join t_cpz_product_level on t_cpz_product_level.productCategoryId=t_cpz_plat_product.productCategoryId inner join t_cpz_plat_product_pic on t_cpz_plat_product_pic.productId=t_cpz_plat_product.productID inner join t_cpz_plat_product_norms on t_cpz_plat_product_norms.productId=t_cpz_plat_product.productID where 	
+	<if test="productName!= null ">
  t_cpz_plat_product.productName= #{productName}
 		</if>
 		<if test="productType!= null ">
