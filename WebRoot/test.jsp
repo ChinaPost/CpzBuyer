@@ -15,5 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
    	<a href="CpzBuyer/BuyerPoductSeachTest.jsp">菜品搜索查询接口</a></h5>
+   	<a href="CpzBuyer/CpzBuyerCollectShopTest.jsp">买家店铺收藏信息表接口</a></h5>
+   	
   </body>
 </html>
