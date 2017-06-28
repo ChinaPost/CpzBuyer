@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //卖家表
 public class CpzSellerBean {
 	public Integer sellerId;/**主键*/

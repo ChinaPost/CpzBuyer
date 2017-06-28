@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.impl.CpzTerminfoLinkMapper">
-	<resultMap id="CpzTerminfoLinkResultMap" type="com.company.pojo.CpzTerminfoLinkBean">
+<mapper namespace="com.cpz.dao.impl.CpzTerminfoLinkMapper">
+	<resultMap id="CpzTerminfoLinkResultMap" type="com.cpz.pojo.CpzTerminfoLinkBean">
 	</resultMap>
 	<select id="CpzTerminfoLinkSelect" resultMap="CpzTerminfoLinkResultMap" >
 select * from t_cpz_terminfo_link 

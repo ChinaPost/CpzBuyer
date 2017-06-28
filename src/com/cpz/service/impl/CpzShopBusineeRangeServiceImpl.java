@@ -1,13 +1,16 @@
-package com.company.service.impl;
+package com.cpz.service.impl;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import com.framework.dao.BaseDao;
-import com.framework.dao.common.DaoTools;
-import com.framework.exception.CommonException;
+
+import com.cpz.dao.impl.CpzShopBusineeRangeMapper;
+import com.cpz.pojo.CpzShopBusineeRangeBean;
 //店铺经营范围表
 @Service("CpzShopBusineeRangeService")
 public class CpzShopBusineeRangeServiceImpl implements CpzShopBusineeRangeService {

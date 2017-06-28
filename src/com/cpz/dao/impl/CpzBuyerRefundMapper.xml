@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.impl.CpzBuyerRefundMapper">
-	<resultMap id="CpzBuyerRefundResultMap" type="com.company.pojo.CpzBuyerRefundBean">
+<mapper namespace="com.cpz.dao.impl.CpzBuyerRefundMapper">
+	<resultMap id="CpzBuyerRefundResultMap" type="com.cpz.pojo.CpzBuyerRefundBean">
 	</resultMap>
 	<select id="CpzBuyerRefundSelect" resultMap="CpzBuyerRefundResultMap" >
 select * from t_cpz_buyer_refund 

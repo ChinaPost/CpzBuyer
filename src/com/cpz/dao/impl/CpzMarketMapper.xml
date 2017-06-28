@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.impl.CpzMarketMapper">
-	<resultMap id="CpzMarketResultMap" type="com.company.pojo.CpzMarketBean">
+<mapper namespace="com.cpz.dao.impl.CpzMarketMapper">
+	<resultMap id="CpzMarketResultMap" type="com.cpz.pojo.CpzMarketBean">
 	</resultMap>
 	<select id="CpzMarketSelect" resultMap="CpzMarketResultMap" >
 select * from t_cpz_market 

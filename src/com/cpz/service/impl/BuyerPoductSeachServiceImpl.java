@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.cpz.dao.impl.BuyerPoductSeachMapper;
 import com.cpz.pojo.BuyerPoductSeachBean;
-import com.framework.dao.BaseDao;
-import com.framework.dao.common.DaoTools;
-import com.framework.exception.CommonException;
 @Service("BuyerPoductSeachService")
 public class BuyerPoductSeachServiceImpl implements BuyerPoductSeachService {
 	private final static Logger logger = LoggerFactory.getLogger(BuyerPoductSeachServiceImpl.class);

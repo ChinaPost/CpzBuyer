@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //市场表
 public class CpzMarketBean {
 	public Integer marketId;/**市场ID*/

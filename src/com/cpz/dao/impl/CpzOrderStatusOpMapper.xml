@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.impl.CpzOrderStatusOpMapper">
-	<resultMap id="CpzOrderStatusOpResultMap" type="com.company.pojo.CpzOrderStatusOpBean">
+<mapper namespace="com.cpz.dao.impl.CpzOrderStatusOpMapper">
+	<resultMap id="CpzOrderStatusOpResultMap" type="com.cpz.pojo.CpzOrderStatusOpBean">
 	</resultMap>
 	<select id="CpzOrderStatusOpSelect" resultMap="CpzOrderStatusOpResultMap" >
 select * from t_cpz_order_status_op 

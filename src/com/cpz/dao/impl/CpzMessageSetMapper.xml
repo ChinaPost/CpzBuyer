@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.impl.CpzMessageSetMapper">
-	<resultMap id="CpzMessageSetResultMap" type="com.company.pojo.CpzMessageSetBean">
+<mapper namespace="com.cpz.dao.impl.CpzMessageSetMapper">
+	<resultMap id="CpzMessageSetResultMap" type="com.cpz.pojo.CpzMessageSetBean">
 	</resultMap>
 	<select id="CpzMessageSetSelect" resultMap="CpzMessageSetResultMap" >
 select * from t_cpz_message_set 

@@ -3,33 +3,34 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>商品分类表</title>
+<title>平台商品规格表</title>
 <script
-	type="text/javascript" src="js/jquery-1.7.1.js"></script>
+	type="text/javascript" src="../js/jquery-1.7.1.js"></script>
 	<script>
 		
 		
 		$(document).on('ready', function() {
 			var searchInp="?";
 			$("#searchIn").val(searchInp);
-			var addInp="?productCategoryId=&productCategoryName=&parentId=&parentName=&productCategoryGrade=&path=";
+			var addInp="?normsId=&productId=&normsName=&remark1=";
 			$("#addIn").val(addInp);
-			var updateInp="?productCategoryId=&productCategoryName=&parentId=&parentName=&productCategoryGrade=&path=";
+			var updateInp="?normsId=&productId=&normsName=&remark1=";
 			$("#updateIn").val(updateInp);
-			var deleteInp="?productCategoryId=";
+			var deleteInp="?normsId=";
 			$("#deleteIn").val(deleteInp);
 		});
 		
 		
 		function doSearch(){
 		var searchInp=	$("#searchIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzproductlevel/query.do'+searchInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzplatproductnorms/query.do'+searchInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzproductlevel/query.do'+searchInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -48,13 +49,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doAdd(){
 		var addInp=	$("#addIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzproductlevel/insert.do'+addInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzplatproductnorms/insert.do'+addInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzproductlevel/insert.do'+addInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -73,13 +75,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doUpdate(){
 			var updateInp= $("#updateIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzproductlevel/update.do'+updateInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzplatproductnorms/update.do'+updateInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzproductlevel/update.do'+updateInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -96,13 +99,14 @@ $("#pageContent").html(jsonstr);
 		}
 		function doDelete(code){
 		var 	deleteInp=$("#deleteIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzproductlevel/delete.do'+deleteInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzplatproductnorms/delete.do'+deleteInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzproductlevel/delete.do'+deleteInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -123,7 +127,7 @@ $("#pageContent").html(jsonstr);
 	</script>
 </head>
 <body>
-	<div> 商品分类表接口</div>
+	<div> 平台商品规格表接口</div>
 	<div style="padding-left:20px;margin-bottom:10px;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	查询urlPara：<input type="text" id="searchIn" style="margin-left:10px;width:800px;height:20px; " value=""/>

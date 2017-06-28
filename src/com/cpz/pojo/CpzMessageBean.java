@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //消息表
 public class CpzMessageBean {
 	public Integer messageId;/**主键*/

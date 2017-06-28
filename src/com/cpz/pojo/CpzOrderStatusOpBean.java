@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //订单状态操作表
 public class CpzOrderStatusOpBean {
 	public Integer orderNo;/**订单号*/

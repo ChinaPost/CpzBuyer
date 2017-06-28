@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.impl.GspSalesReportMapper">
-	<resultMap id="GspSalesReportResultMap" type="com.company.pojo.GspSalesReportBean">
+<mapper namespace="com.cpz.dao.impl.GspSalesReportMapper">
+	<resultMap id="GspSalesReportResultMap" type="com.cpz.pojo.GspSalesReportBean">
 	</resultMap>
 	<select id="GspSalesReportSelect" resultMap="GspSalesReportResultMap" >
 select * from t_gsp_sales_report 

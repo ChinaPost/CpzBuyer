@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //商品分类表
 public class CpzProductLevelBean {
 	public Integer productCategoryId;/**级别代号顺序号，从1开始*/

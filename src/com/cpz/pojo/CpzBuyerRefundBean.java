@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //买家退款表
 public class CpzBuyerRefundBean {
 	public Integer refundId;/**退款单号 顺序号*/

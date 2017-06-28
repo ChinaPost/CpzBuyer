@@ -3,33 +3,34 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>店铺经营范围表</title>
+<title>卖家商品信息表</title>
 <script
-	type="text/javascript" src="js/jquery-1.7.1.js"></script>
+	type="text/javascript" src="../js/jquery-1.7.1.js"></script>
 	<script>
 		
 		
 		$(document).on('ready', function() {
 			var searchInp="?";
 			$("#searchIn").val(searchInp);
-			var addInp="?shopBusineeRangeId=&busiName=";
+			var addInp="?shopProductId=&productName=&productPic=&merchIntro=&description=&productStatus=&productId=&shopId=&orderNo=&startTime=&endTime=&remakr1=&levelId=";
 			$("#addIn").val(addInp);
-			var updateInp="?shopBusineeRangeId=&busiName=";
+			var updateInp="?shopProductId=&productName=&productPic=&merchIntro=&description=&productStatus=&productId=&shopId=&orderNo=&startTime=&endTime=&remakr1=&levelId=";
 			$("#updateIn").val(updateInp);
-			var deleteInp="?shopBusineeRangeId=";
+			var deleteInp="?shopProductId=";
 			$("#deleteIn").val(deleteInp);
 		});
 		
 		
 		function doSearch(){
 		var searchInp=	$("#searchIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzshopbusineerange/query.do'+searchInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzsellerproduct/query.do'+searchInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzshopbusineerange/query.do'+searchInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -48,13 +49,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doAdd(){
 		var addInp=	$("#addIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzshopbusineerange/insert.do'+addInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzsellerproduct/insert.do'+addInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzshopbusineerange/insert.do'+addInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -73,13 +75,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doUpdate(){
 			var updateInp= $("#updateIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzshopbusineerange/update.do'+updateInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzsellerproduct/update.do'+updateInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzshopbusineerange/update.do'+updateInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -96,13 +99,14 @@ $("#pageContent").html(jsonstr);
 		}
 		function doDelete(code){
 		var 	deleteInp=$("#deleteIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzshopbusineerange/delete.do'+deleteInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzsellerproduct/delete.do'+deleteInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzshopbusineerange/delete.do'+deleteInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -123,7 +127,7 @@ $("#pageContent").html(jsonstr);
 	</script>
 </head>
 <body>
-	<div> 店铺经营范围表接口</div>
+	<div> 卖家商品信息表接口</div>
 	<div style="padding-left:20px;margin-bottom:10px;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	查询urlPara：<input type="text" id="searchIn" style="margin-left:10px;width:800px;height:20px; " value=""/>

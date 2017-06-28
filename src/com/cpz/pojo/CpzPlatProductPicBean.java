@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //平台商品图片表
 public class CpzPlatProductPicBean {
 	public Integer productId;/**商品代号*/

@@ -1,4 +1,8 @@
-package com.company.dao.impl;
+package com.cpz.dao.impl;
+import java.util.List;
+import java.util.Map;
+
+import com.cpz.pojo.CpzBuyerRefundBean;
 //买家退款表
 public interface CpzBuyerRefundMapper {
 List<CpzBuyerRefundBean> CpzBuyerRefundSelect(Map para);

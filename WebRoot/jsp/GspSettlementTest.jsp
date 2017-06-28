@@ -3,33 +3,34 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>订单关联商品表</title>
+<title>结算表</title>
 <script
-	type="text/javascript" src="js/jquery-1.7.1.js"></script>
+	type="text/javascript" src="../js/jquery-1.7.1.js"></script>
 	<script>
 		
 		
 		$(document).on('ready', function() {
 			var searchInp="?";
 			$("#searchIn").val(searchInp);
-			var addInp="?orderNo=&shopProductId=&shopProductName=&levelId=&productType=&shopNormsId=&shopNormsNum=&shopNormsPrice=";
+			var addInp="?settId=&orderNo=&settSn=&status=&sumPrice=&sellerId=";
 			$("#addIn").val(addInp);
-			var updateInp="?orderNo=&shopProductId=&shopProductName=&levelId=&productType=&shopNormsId=&shopNormsNum=&shopNormsPrice=";
+			var updateInp="?settId=&orderNo=&settSn=&status=&sumPrice=&sellerId=";
 			$("#updateIn").val(updateInp);
-			var deleteInp="?orderNo=&shopProductId=";
+			var deleteInp="?settId=";
 			$("#deleteIn").val(deleteInp);
 		});
 		
 		
 		function doSearch(){
 		var searchInp=	$("#searchIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzbuyerorderproduct/query.do'+searchInp;
+var requesturl='http://'+host+'/'+projectName+'/gspsettlement/query.do'+searchInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzbuyerorderproduct/query.do'+searchInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -48,13 +49,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doAdd(){
 		var addInp=	$("#addIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzbuyerorderproduct/insert.do'+addInp;
+var requesturl='http://'+host+'/'+projectName+'/gspsettlement/insert.do'+addInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzbuyerorderproduct/insert.do'+addInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -73,13 +75,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doUpdate(){
 			var updateInp= $("#updateIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzbuyerorderproduct/update.do'+updateInp;
+var requesturl='http://'+host+'/'+projectName+'/gspsettlement/update.do'+updateInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzbuyerorderproduct/update.do'+updateInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -96,13 +99,14 @@ $("#pageContent").html(jsonstr);
 		}
 		function doDelete(code){
 		var 	deleteInp=$("#deleteIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzbuyerorderproduct/delete.do'+deleteInp;
+var requesturl='http://'+host+'/'+projectName+'/gspsettlement/delete.do'+deleteInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzbuyerorderproduct/delete.do'+deleteInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -123,7 +127,7 @@ $("#pageContent").html(jsonstr);
 	</script>
 </head>
 <body>
-	<div> 订单关联商品表接口</div>
+	<div> 结算表接口</div>
 	<div style="padding-left:20px;margin-bottom:10px;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	查询urlPara：<input type="text" id="searchIn" style="margin-left:10px;width:800px;height:20px; " value=""/>

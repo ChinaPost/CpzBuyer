@@ -1,13 +1,16 @@
-package com.company.service.impl;
+package com.cpz.service.impl;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import com.framework.dao.BaseDao;
-import com.framework.dao.common.DaoTools;
-import com.framework.exception.CommonException;
+
+import com.cpz.dao.impl.GspProductNormsMapMapper;
+import com.cpz.pojo.GspProductNormsMapBean;
 //商品规格关联表
 @Service("GspProductNormsMapService")
 public class GspProductNormsMapServiceImpl implements GspProductNormsMapService {

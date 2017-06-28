@@ -1,4 +1,8 @@
-package com.company.service.impl;
+package com.cpz.service.impl;
+import java.util.List;
+import java.util.Map;
+
+import com.cpz.pojo.CpzBuyerRefundBean;
 //买家退款表
 public interface CpzBuyerRefundService {
 	List<CpzBuyerRefundBean> get(Map para) throws Exception;

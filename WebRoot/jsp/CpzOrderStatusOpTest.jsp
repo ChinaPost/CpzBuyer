@@ -3,33 +3,34 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>买家购物车表</title>
+<title>订单状态操作表</title>
 <script
-	type="text/javascript" src="js/jquery-1.7.1.js"></script>
+	type="text/javascript" src="../js/jquery-1.7.1.js"></script>
 	<script>
 		
 		
 		$(document).on('ready', function() {
 			var searchInp="?";
 			$("#searchIn").val(searchInp);
-			var addInp="?shopCarId=&userId=&shopProductId=&shopId=&marketId=&normsId=&buyNum=&normsPrice=&createTime=&remark=";
+			var addInp="?orderNo=&orderStatus=&opFalg=";
 			$("#addIn").val(addInp);
-			var updateInp="?shopCarId=&userId=&shopProductId=&shopId=&marketId=&normsId=&buyNum=&normsPrice=&createTime=&remark=";
+			var updateInp="?orderNo=&orderStatus=&opFalg=";
 			$("#updateIn").val(updateInp);
-			var deleteInp="?shopCarId=";
+			var deleteInp="?orderNo=";
 			$("#deleteIn").val(deleteInp);
 		});
 		
 		
 		function doSearch(){
 		var searchInp=	$("#searchIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzbuyershopping/query.do'+searchInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzorderstatusop/query.do'+searchInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzbuyershopping/query.do'+searchInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -48,13 +49,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doAdd(){
 		var addInp=	$("#addIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzbuyershopping/insert.do'+addInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzorderstatusop/insert.do'+addInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzbuyershopping/insert.do'+addInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -73,13 +75,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doUpdate(){
 			var updateInp= $("#updateIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzbuyershopping/update.do'+updateInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzorderstatusop/update.do'+updateInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzbuyershopping/update.do'+updateInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -96,13 +99,14 @@ $("#pageContent").html(jsonstr);
 		}
 		function doDelete(code){
 		var 	deleteInp=$("#deleteIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzbuyershopping/delete.do'+deleteInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzorderstatusop/delete.do'+deleteInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzbuyershopping/delete.do'+deleteInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -123,7 +127,7 @@ $("#pageContent").html(jsonstr);
 	</script>
 </head>
 <body>
-	<div> 买家购物车表接口</div>
+	<div> 订单状态操作表接口</div>
 	<div style="padding-left:20px;margin-bottom:10px;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	查询urlPara：<input type="text" id="searchIn" style="margin-left:10px;width:800px;height:20px; " value=""/>

@@ -1,4 +1,8 @@
-package com.company.dao.impl;
+package com.cpz.dao.impl;
+import java.util.List;
+import java.util.Map;
+
+import com.cpz.pojo.CpzPlatProductNormsBean;
 //平台商品规格表
 public interface CpzPlatProductNormsMapper {
 List<CpzPlatProductNormsBean> CpzPlatProductNormsSelect(Map para);

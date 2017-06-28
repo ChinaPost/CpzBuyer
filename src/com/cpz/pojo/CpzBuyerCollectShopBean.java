@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //买家店铺收藏信息表
 public class CpzBuyerCollectShopBean {
 	public Integer userId;/**用户id*/

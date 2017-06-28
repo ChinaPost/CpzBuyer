@@ -1,4 +1,8 @@
-package com.company.dao.impl;
+package com.cpz.dao.impl;
+import java.util.List;
+import java.util.Map;
+
+import com.cpz.pojo.CpzSellerBean;
 //卖家表
 public interface CpzSellerMapper {
 List<CpzSellerBean> CpzSellerSelect(Map para);

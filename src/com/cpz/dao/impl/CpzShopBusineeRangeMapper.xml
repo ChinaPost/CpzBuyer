@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.impl.CpzShopBusineeRangeMapper">
-	<resultMap id="CpzShopBusineeRangeResultMap" type="com.company.pojo.CpzShopBusineeRangeBean">
+<mapper namespace="com.cpz.dao.impl.CpzShopBusineeRangeMapper">
+	<resultMap id="CpzShopBusineeRangeResultMap" type="com.cpz.pojo.CpzShopBusineeRangeBean">
 	</resultMap>
 	<select id="CpzShopBusineeRangeSelect" resultMap="CpzShopBusineeRangeResultMap" >
 select * from t_cpz_shop_businee_range 

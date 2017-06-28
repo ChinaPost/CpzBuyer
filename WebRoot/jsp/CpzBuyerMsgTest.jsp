@@ -3,33 +3,34 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>消息设置表</title>
+<title>买家基本信息表</title>
 <script
-	type="text/javascript" src="js/jquery-1.7.1.js"></script>
+	type="text/javascript" src="../js/jquery-1.7.1.js"></script>
 	<script>
 		
 		
 		$(document).on('ready', function() {
 			var searchInp="?";
 			$("#searchIn").val(searchInp);
-			var addInp="?messageSetId=&messageType=&systemNo=";
+			var addInp="?userId=&moileNo=&nickName=&sex=&headUrl=&cstmLevel=&lonValue=&latValue=&createTime=";
 			$("#addIn").val(addInp);
-			var updateInp="?messageSetId=&messageType=&systemNo=";
+			var updateInp="?userId=&moileNo=&nickName=&sex=&headUrl=&cstmLevel=&lonValue=&latValue=&createTime=";
 			$("#updateIn").val(updateInp);
-			var deleteInp="?messageSetId=";
+			var deleteInp="?userId=";
 			$("#deleteIn").val(deleteInp);
 		});
 		
 		
 		function doSearch(){
 		var searchInp=	$("#searchIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzmessageset/query.do'+searchInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzbuyermsg/query.do'+searchInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzmessageset/query.do'+searchInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -48,13 +49,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doAdd(){
 		var addInp=	$("#addIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzmessageset/insert.do'+addInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzbuyermsg/insert.do'+addInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzmessageset/insert.do'+addInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -73,13 +75,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doUpdate(){
 			var updateInp= $("#updateIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzmessageset/update.do'+updateInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzbuyermsg/update.do'+updateInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzmessageset/update.do'+updateInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -96,13 +99,14 @@ $("#pageContent").html(jsonstr);
 		}
 		function doDelete(code){
 		var 	deleteInp=$("#deleteIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzmessageset/delete.do'+deleteInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzbuyermsg/delete.do'+deleteInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzmessageset/delete.do'+deleteInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -123,7 +127,7 @@ $("#pageContent").html(jsonstr);
 	</script>
 </head>
 <body>
-	<div> 消息设置表接口</div>
+	<div> 买家基本信息表接口</div>
 	<div style="padding-left:20px;margin-bottom:10px;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	查询urlPara：<input type="text" id="searchIn" style="margin-left:10px;width:800px;height:20px; " value=""/>

@@ -3,33 +3,34 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>菜品搜索查询</title>
+<title>平台商品信息表</title>
 <script
-	type="text/javascript" src="js/jquery-1.7.1.js"></script>
+	type="text/javascript" src="../js/jquery-1.7.1.js"></script>
 	<script>
 		
 		
 		$(document).on('ready', function() {
-			var searchInp="?productName=&productType=";
+			var searchInp="?";
 			$("#searchIn").val(searchInp);
-			var addInp="?";
+			var addInp="?productID=&productName=&productCategoryId=&productType=&productStatus=&tradingUnit=&productColor=&isFresh=&sourceArea=&isCanRefund=&isNeedSpot=&productDetail=&supportDay=&channelNo=&remakr1=&remakr2=";
 			$("#addIn").val(addInp);
-			var updateInp="?";
+			var updateInp="?productID=&productName=&productCategoryId=&productType=&productStatus=&tradingUnit=&productColor=&isFresh=&sourceArea=&isCanRefund=&isNeedSpot=&productDetail=&supportDay=&channelNo=&remakr1=&remakr2=";
 			$("#updateIn").val(updateInp);
-			var deleteInp="?";
+			var deleteInp="?productID=";
 			$("#deleteIn").val(deleteInp);
 		});
 		
 		
 		function doSearch(){
 		var searchInp=	$("#searchIn").val();
-		var pathName=window.document.location.pathname;
-		var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1); 
-var requesturl='http://localhost:8080/'+projectName+'/buyerpoductseach/query.do'+searchInp;
+var host=window.document.location.host;
+var pathName=window.document.location.pathname;
+var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
+var requesturl='http://'+host+'/'+projectName+'/cpzplatproduct/query.do'+searchInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'buyerpoductseach/query.do'+searchInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -48,13 +49,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doAdd(){
 		var addInp=	$("#addIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
-		var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1); 
-var requesturl='http://localhost:8080/'+projectName+'/buyerpoductseach/insert.do'+addInp;
+var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
+var requesturl='http://'+host+'/'+projectName+'/cpzplatproduct/insert.do'+addInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'buyerpoductseach/insert.do'+addInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -73,13 +75,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doUpdate(){
 			var updateInp= $("#updateIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
-		var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1); 
-var requesturl='http://localhost:8080/'+projectName+'/buyerpoductseach/update.do'+updateInp;
+var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
+var requesturl='http://'+host+'/'+projectName+'/cpzplatproduct/update.do'+updateInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'buyerpoductseach/update.do'+updateInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -96,13 +99,14 @@ $("#pageContent").html(jsonstr);
 		}
 		function doDelete(code){
 		var 	deleteInp=$("#deleteIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
-		var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1); 
-var requesturl='http://localhost:8080/'+projectName+'/buyerpoductseach/delete.do'+deleteInp;
+var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
+var requesturl='http://'+host+'/'+projectName+'/cpzplatproduct/delete.do'+deleteInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'buyerpoductseach/delete.do'+deleteInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -123,25 +127,25 @@ $("#pageContent").html(jsonstr);
 	</script>
 </head>
 <body>
-	<div> 菜品搜索查询接口</div>
+	<div> 平台商品信息表接口</div>
 	<div style="padding-left:20px;margin-bottom:10px;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	查询urlPara：<input type="text" id="searchIn" style="margin-left:10px;width:800px;height:20px; " value=""/>
 	<input type="button" value="查询" id="search" name = "search" onmouseover="this.style.cursor='hand'" style="width:50px;height:20px;font-size:12px;"  onclick="doSearch()">
 	</div>
 	
-	<div style="padding-left:20px;margin-bottom:10px;display:none;" >
+	<div style="padding-left:20px;margin-bottom:10px;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	新增urlPara：<input type="text" id="addIn" style="margin-left:10px;width:800px;height:20px; " value=""/>
 	<input type="button" value="新增" id="search" name = "search" onmouseover="this.style.cursor='hand'" style="width:50px;height:20px;font-size:12px;"  onclick="doAdd()">
 	</div>
 	
-	<div style="padding-left:20px;margin-bottom:10px;display:none;" >
+	<div style="padding-left:20px;margin-bottom:10px;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	修改urlPara：<input type="text" id="updateIn" style="margin-left:10px;width:800px;height:20px; " value=""/>
 	<input type="button" value="修改" id="search" name = "search" onmouseover="this.style.cursor='hand'" style="width:50px;height:20px;font-size:12px;"  onclick="doUpdate()">
 	</div>
-	<div style="padding-left:20px;margin-bottom:10px;display:none;" >
+	<div style="padding-left:20px;margin-bottom:10px;" >
 	<input type="hidden" id="thd_sys_id" name="thd_sys_id" value="" />
 	删除urlPara：<input type="text" id="deleteIn" style="margin-left:10px;width:800px;height:20px; " value=""/>
 	<input type="button" value="删除" id="search" name = "search" onmouseover="this.style.cursor='hand'" style="width:50px;height:20px;font-size:12px;"  onclick="doDelete()">

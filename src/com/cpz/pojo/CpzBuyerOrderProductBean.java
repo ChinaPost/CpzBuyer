@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //订单关联商品表
 public class CpzBuyerOrderProductBean {
 	public String orderNo;/**订单号*/

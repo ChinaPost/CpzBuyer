@@ -5,7 +5,7 @@
 <head>
 <title>卖家表</title>
 <script
-	type="text/javascript" src="js/jquery-1.7.1.js"></script>
+	type="text/javascript" src="../js/jquery-1.7.1.js"></script>
 	<script>
 		
 		
@@ -23,13 +23,14 @@
 		
 		function doSearch(){
 		var searchInp=	$("#searchIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzseller/query.do'+searchInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzseller/query.do'+searchInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzseller/query.do'+searchInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -48,13 +49,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doAdd(){
 		var addInp=	$("#addIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'cpzseller/insert.do'+addInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzseller/insert.do'+addInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzseller/insert.do'+addInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -73,13 +75,14 @@ $("#pageContent").html(jsonstr);
 		
 		function doUpdate(){
 			var updateInp= $("#updateIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzseller/update.do'+updateInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzseller/update.do'+updateInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzseller/update.do'+updateInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){
@@ -96,13 +99,14 @@ $("#pageContent").html(jsonstr);
 		}
 		function doDelete(code){
 		var 	deleteInp=$("#deleteIn").val();
+var host=window.document.location.host;
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(1,pathName.substr(1).indexOf('/')+1);
-var requesturl='http://localhost:8080/'+projectName+'/cpzseller/delete.do'+deleteInp;
+var requesturl='http://'+host+'/'+projectName+'/cpzseller/delete.do'+deleteInp;
 			
 				$.ajax({
 					type:'POST',
-					url:'cpzseller/delete.do'+deleteInp,
+					url:requesturl,
 					data:{
 					},
 					success:function(result){

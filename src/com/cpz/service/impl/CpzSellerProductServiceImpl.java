@@ -1,13 +1,16 @@
-package com.company.service.impl;
+package com.cpz.service.impl;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import com.framework.dao.BaseDao;
-import com.framework.dao.common.DaoTools;
-import com.framework.exception.CommonException;
+
+import com.cpz.dao.impl.CpzSellerProductMapper;
+import com.cpz.pojo.CpzSellerProductBean;
 //卖家商品信息表
 @Service("CpzSellerProductService")
 public class CpzSellerProductServiceImpl implements CpzSellerProductService {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.impl.CpzBuyerOrderProductMapper">
-	<resultMap id="CpzBuyerOrderProductResultMap" type="com.company.pojo.CpzBuyerOrderProductBean">
+<mapper namespace="com.cpz.dao.impl.CpzBuyerOrderProductMapper">
+	<resultMap id="CpzBuyerOrderProductResultMap" type="com.cpz.pojo.CpzBuyerOrderProductBean">
 	</resultMap>
 	<select id="CpzBuyerOrderProductSelect" resultMap="CpzBuyerOrderProductResultMap" >
 select * from t_cpz_buyer_order_product 

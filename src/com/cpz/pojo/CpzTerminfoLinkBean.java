@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //买家或者卖家关联第三方信息表
 public class CpzTerminfoLinkBean {
 	public Integer systemNo;/**系统用户号*/

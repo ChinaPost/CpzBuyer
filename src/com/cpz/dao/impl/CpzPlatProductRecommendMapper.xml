@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.company.dao.impl.CpzPlatProductRecommendMapper">
-	<resultMap id="CpzPlatProductRecommendResultMap" type="com.company.pojo.CpzPlatProductRecommendBean">
+<mapper namespace="com.cpz.dao.impl.CpzPlatProductRecommendMapper">
+	<resultMap id="CpzPlatProductRecommendResultMap" type="com.cpz.pojo.CpzPlatProductRecommendBean">
 	</resultMap>
 	<select id="CpzPlatProductRecommendSelect" resultMap="CpzPlatProductRecommendResultMap" >
 select * from t_cpz_plat_product_recommend 

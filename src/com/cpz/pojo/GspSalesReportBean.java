@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //销量统计表
 public class GspSalesReportBean {
 	public Integer salesReportId;/**主键*/

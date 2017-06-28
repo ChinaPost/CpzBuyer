@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //订单或者退款单日志表
 public class CpzBuyerLogBean {
 	public Integer orderLogId;/**日志流水号 顺序号，从1开始*/

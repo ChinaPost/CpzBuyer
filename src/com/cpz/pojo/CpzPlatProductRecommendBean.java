@@ -1,4 +1,6 @@
-package com.company.pojo;
+package com.cpz.pojo;
+import java.util.List;
+import java.util.Map;
 //平台商品推荐表
 public class CpzPlatProductRecommendBean {
 	public Integer Id;/**Id*/
