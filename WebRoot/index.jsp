@@ -14,6 +14,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+
+   	<a href="CpzBuyer/jsp/BuyerPoductSeachTest.jsp">菜品搜索查询接口</a></h5>
+   	
+   	<div> 单表接口</div>
+   	<div>
    	<a href="CpzBuyer/jsp/CpzBuyerMsgTest.jsp">买家基本信息表</a></h5>
 <a href="CpzBuyer/jsp/CpzBuyerCollectShopTest.jsp">买家店铺收藏信息表</a></h5>
 <a href="CpzBuyer/jsp/CpzTerminfoLinkTest.jsp">买家或者卖家关联第三方信息表</a></h5>
@@ -38,6 +43,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <a href="CpzBuyer/jsp/CpzBuyerLogTest.jsp">订单或者退款单日志表</a></h5>
 <a href="CpzBuyer/jsp/CpzOrderStatusOpTest.jsp">订单状态操作表</a></h5>
 <a href="CpzBuyer/jsp/GspSalesReportTest.jsp">销量统计表</a></h5>
-   	
+   	</div>
   </body>
 </html>
