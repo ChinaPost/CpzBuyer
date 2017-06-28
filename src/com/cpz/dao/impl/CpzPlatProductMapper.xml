@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzPlatProductMapper">
+	<resultMap id="CpzPlatProductResultMap" type="com.company.pojo.CpzPlatProductBean">
+	</resultMap>
+	<select id="CpzPlatProductSelect" resultMap="CpzPlatProductResultMap" >
+select * from t_cpz_plat_product 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="productID!= null ">
+ t_cpz_plat_product.productID= #{productID}
+		</if>
+		<if test="productName!= null ">
+ and t_cpz_plat_product.productName= #{productName}
+		</if>
+		<if test="productCategoryId!= null ">
+ and t_cpz_plat_product.productCategoryId= #{productCategoryId}
+		</if>
+		<if test="productType!= null ">
+ and t_cpz_plat_product.productType= #{productType}
+		</if>
+		<if test="productStatus!= null ">
+ and t_cpz_plat_product.productStatus= #{productStatus}
+		</if>
+		<if test="tradingUnit!= null ">
+ and t_cpz_plat_product.tradingUnit= #{tradingUnit}
+		</if>
+		<if test="productColor!= null ">
+ and t_cpz_plat_product.productColor= #{productColor}
+		</if>
+		<if test="isFresh!= null ">
+ and t_cpz_plat_product.isFresh= #{isFresh}
+		</if>
+		<if test="sourceArea!= null ">
+ and t_cpz_plat_product.sourceArea= #{sourceArea}
+		</if>
+		<if test="isCanRefund!= null ">
+ and t_cpz_plat_product.isCanRefund= #{isCanRefund}
+		</if>
+		<if test="isNeedSpot!= null ">
+ and t_cpz_plat_product.isNeedSpot= #{isNeedSpot}
+		</if>
+		<if test="productDetail!= null ">
+ and t_cpz_plat_product.productDetail= #{productDetail}
+		</if>
+		<if test="supportDay!= null ">
+ and t_cpz_plat_product.supportDay= #{supportDay}
+		</if>
+		<if test="channelNo!= null ">
+ and t_cpz_plat_product.channelNo= #{channelNo}
+		</if>
+		<if test="remakr1!= null ">
+ and t_cpz_plat_product.remakr1= #{remakr1}
+		</if>
+		<if test="remakr2!= null ">
+ and t_cpz_plat_product.remakr2= #{remakr2}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzPlatProductInsert" parameterType="CpzPlatProductBean">
+		insert into t_cpz_plat_product 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="productID != null">
+				productID,
+			</if>
+			<if test="productName != null">
+				productName,
+			</if>
+			<if test="productCategoryId != null">
+				productCategoryId,
+			</if>
+			<if test="productType != null">
+				productType,
+			</if>
+			<if test="productStatus != null">
+				productStatus,
+			</if>
+			<if test="tradingUnit != null">
+				tradingUnit,
+			</if>
+			<if test="productColor != null">
+				productColor,
+			</if>
+			<if test="isFresh != null">
+				isFresh,
+			</if>
+			<if test="sourceArea != null">
+				sourceArea,
+			</if>
+			<if test="isCanRefund != null">
+				isCanRefund,
+			</if>
+			<if test="isNeedSpot != null">
+				isNeedSpot,
+			</if>
+			<if test="productDetail != null">
+				productDetail,
+			</if>
+			<if test="supportDay != null">
+				supportDay,
+			</if>
+			<if test="channelNo != null">
+				channelNo,
+			</if>
+			<if test="remakr1 != null">
+				remakr1,
+			</if>
+			<if test="remakr2 != null">
+				remakr2,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="productID != null">
+				#{productID,jdbcType=INTEGER},
+			</if>
+			<if test="productName != null">
+				#{productName,jdbcType=VARCHAR},
+			</if>
+			<if test="productCategoryId != null">
+				#{productCategoryId,jdbcType=INTEGER},
+			</if>
+			<if test="productType != null">
+				#{productType,jdbcType=VARCHAR},
+			</if>
+			<if test="productStatus != null">
+				#{productStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="tradingUnit != null">
+				#{tradingUnit,jdbcType=VARCHAR},
+			</if>
+			<if test="productColor != null">
+				#{productColor,jdbcType=VARCHAR},
+			</if>
+			<if test="isFresh != null">
+				#{isFresh,jdbcType=VARCHAR},
+			</if>
+			<if test="sourceArea != null">
+				#{sourceArea,jdbcType=VARCHAR},
+			</if>
+			<if test="isCanRefund != null">
+				#{isCanRefund,jdbcType=VARCHAR},
+			</if>
+			<if test="isNeedSpot != null">
+				#{isNeedSpot,jdbcType=VARCHAR},
+			</if>
+			<if test="productDetail != null">
+				#{productDetail,jdbcType=VARCHAR},
+			</if>
+			<if test="supportDay != null">
+				#{supportDay,jdbcType=INTEGER},
+			</if>
+			<if test="channelNo != null">
+				#{channelNo,jdbcType=VARCHAR},
+			</if>
+			<if test="remakr1 != null">
+				#{remakr1,jdbcType=VARCHAR},
+			</if>
+			<if test="remakr2 != null">
+				#{remakr2,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzPlatProductDelete" parameterType="CpzPlatProductBean">
+		delete from t_cpz_plat_product		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="productID != null">
+				productID=#{productID,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzPlatProductUpdate" parameterType="CpzPlatProductBean">
+		update t_cpz_plat_product
+		<set>
+			<if test="productName != null">
+				productName=#{productName,jdbcType=VARCHAR},
+			</if>
+			<if test="productCategoryId != null">
+				productCategoryId=#{productCategoryId,jdbcType=INTEGER},
+			</if>
+			<if test="productType != null">
+				productType=#{productType,jdbcType=VARCHAR},
+			</if>
+			<if test="productStatus != null">
+				productStatus=#{productStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="tradingUnit != null">
+				tradingUnit=#{tradingUnit,jdbcType=VARCHAR},
+			</if>
+			<if test="productColor != null">
+				productColor=#{productColor,jdbcType=VARCHAR},
+			</if>
+			<if test="isFresh != null">
+				isFresh=#{isFresh,jdbcType=VARCHAR},
+			</if>
+			<if test="sourceArea != null">
+				sourceArea=#{sourceArea,jdbcType=VARCHAR},
+			</if>
+			<if test="isCanRefund != null">
+				isCanRefund=#{isCanRefund,jdbcType=VARCHAR},
+			</if>
+			<if test="isNeedSpot != null">
+				isNeedSpot=#{isNeedSpot,jdbcType=VARCHAR},
+			</if>
+			<if test="productDetail != null">
+				productDetail=#{productDetail,jdbcType=VARCHAR},
+			</if>
+			<if test="supportDay != null">
+				supportDay=#{supportDay,jdbcType=INTEGER},
+			</if>
+			<if test="channelNo != null">
+				channelNo=#{channelNo,jdbcType=VARCHAR},
+			</if>
+			<if test="remakr1 != null">
+				remakr1=#{remakr1,jdbcType=VARCHAR},
+			</if>
+			<if test="remakr2 != null">
+				remakr2=#{remakr2,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="productID != null">
+				productID=#{productID,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

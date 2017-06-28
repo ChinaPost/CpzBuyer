@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzTerminfoLinkMapper">
+	<resultMap id="CpzTerminfoLinkResultMap" type="com.company.pojo.CpzTerminfoLinkBean">
+	</resultMap>
+	<select id="CpzTerminfoLinkSelect" resultMap="CpzTerminfoLinkResultMap" >
+select * from t_cpz_terminfo_link 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="systemNo!= null ">
+ t_cpz_terminfo_link.systemNo= #{systemNo}
+		</if>
+		<if test="systemTyoe!= null ">
+ and t_cpz_terminfo_link.systemTyoe= #{systemTyoe}
+		</if>
+		<if test="linkType!= null ">
+ and t_cpz_terminfo_link.linkType= #{linkType}
+		</if>
+		<if test="linkNo!= null ">
+ and t_cpz_terminfo_link.linkNo= #{linkNo}
+		</if>
+		<if test="linkTime!= null ">
+ and t_cpz_terminfo_link.linkTime= #{linkTime}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzTerminfoLinkInsert" parameterType="CpzTerminfoLinkBean">
+		insert into t_cpz_terminfo_link 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="systemNo != null">
+				systemNo,
+			</if>
+			<if test="systemTyoe != null">
+				systemTyoe,
+			</if>
+			<if test="linkType != null">
+				linkType,
+			</if>
+			<if test="linkNo != null">
+				linkNo,
+			</if>
+			<if test="linkTime != null">
+				linkTime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="systemNo != null">
+				#{systemNo,jdbcType=INTEGER},
+			</if>
+			<if test="systemTyoe != null">
+				#{systemTyoe,jdbcType=VARCHAR},
+			</if>
+			<if test="linkType != null">
+				#{linkType,jdbcType=VARCHAR},
+			</if>
+			<if test="linkNo != null">
+				#{linkNo,jdbcType=VARCHAR},
+			</if>
+			<if test="linkTime != null">
+				#{linkTime,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzTerminfoLinkDelete" parameterType="CpzTerminfoLinkBean">
+		delete from t_cpz_terminfo_link		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="systemNo != null">
+				systemNo=#{systemNo,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzTerminfoLinkUpdate" parameterType="CpzTerminfoLinkBean">
+		update t_cpz_terminfo_link
+		<set>
+			<if test="systemTyoe != null">
+				systemTyoe=#{systemTyoe,jdbcType=VARCHAR},
+			</if>
+			<if test="linkType != null">
+				linkType=#{linkType,jdbcType=VARCHAR},
+			</if>
+			<if test="linkNo != null">
+				linkNo=#{linkNo,jdbcType=VARCHAR},
+			</if>
+			<if test="linkTime != null">
+				linkTime=#{linkTime,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="systemNo != null">
+				systemNo=#{systemNo,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

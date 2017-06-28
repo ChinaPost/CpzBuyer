@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzPlatProductPicMapper">
+	<resultMap id="CpzPlatProductPicResultMap" type="com.company.pojo.CpzPlatProductPicBean">
+	</resultMap>
+	<select id="CpzPlatProductPicSelect" resultMap="CpzPlatProductPicResultMap" >
+select * from t_cpz_plat_product_pic 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="productId!= null ">
+ t_cpz_plat_product_pic.productId= #{productId}
+		</if>
+		<if test="picName!= null ">
+ and t_cpz_plat_product_pic.picName= #{picName}
+		</if>
+		<if test="picShowNo!= null ">
+ and t_cpz_plat_product_pic.picShowNo= #{picShowNo}
+		</if>
+		<if test="picNorms!= null ">
+ and t_cpz_plat_product_pic.picNorms= #{picNorms}
+		</if>
+		<if test="picUrl!= null ">
+ and t_cpz_plat_product_pic.picUrl= #{picUrl}
+		</if>
+		<if test="remark1!= null ">
+ and t_cpz_plat_product_pic.remark1= #{remark1}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzPlatProductPicInsert" parameterType="CpzPlatProductPicBean">
+		insert into t_cpz_plat_product_pic 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="productId != null">
+				productId,
+			</if>
+			<if test="picName != null">
+				picName,
+			</if>
+			<if test="picShowNo != null">
+				picShowNo,
+			</if>
+			<if test="picNorms != null">
+				picNorms,
+			</if>
+			<if test="picUrl != null">
+				picUrl,
+			</if>
+			<if test="remark1 != null">
+				remark1,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="productId != null">
+				#{productId,jdbcType=INTEGER},
+			</if>
+			<if test="picName != null">
+				#{picName,jdbcType=VARCHAR},
+			</if>
+			<if test="picShowNo != null">
+				#{picShowNo,jdbcType=INTEGER},
+			</if>
+			<if test="picNorms != null">
+				#{picNorms,jdbcType=VARCHAR},
+			</if>
+			<if test="picUrl != null">
+				#{picUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="remark1 != null">
+				#{remark1,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzPlatProductPicDelete" parameterType="CpzPlatProductPicBean">
+		delete from t_cpz_plat_product_pic		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="productId != null">
+				productId=#{productId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzPlatProductPicUpdate" parameterType="CpzPlatProductPicBean">
+		update t_cpz_plat_product_pic
+		<set>
+			<if test="picName != null">
+				picName=#{picName,jdbcType=VARCHAR},
+			</if>
+			<if test="picShowNo != null">
+				picShowNo=#{picShowNo,jdbcType=INTEGER},
+			</if>
+			<if test="picNorms != null">
+				picNorms=#{picNorms,jdbcType=VARCHAR},
+			</if>
+			<if test="picUrl != null">
+				picUrl=#{picUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="remark1 != null">
+				remark1=#{remark1,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="productId != null">
+				productId=#{productId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

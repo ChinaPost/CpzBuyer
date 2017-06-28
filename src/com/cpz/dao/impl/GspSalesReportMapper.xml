@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.GspSalesReportMapper">
+	<resultMap id="GspSalesReportResultMap" type="com.company.pojo.GspSalesReportBean">
+	</resultMap>
+	<select id="GspSalesReportSelect" resultMap="GspSalesReportResultMap" >
+select * from t_gsp_sales_report 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="salesReportId!= null ">
+ t_gsp_sales_report.salesReportId= #{salesReportId}
+		</if>
+		<if test="dateStr!= null ">
+ and t_gsp_sales_report.dateStr= #{dateStr}
+		</if>
+		<if test="merchName!= null ">
+ and t_gsp_sales_report.merchName= #{merchName}
+		</if>
+		<if test="weight!= null ">
+ and t_gsp_sales_report.weight= #{weight}
+		</if>
+		<if test="settSumPrice!= null ">
+ and t_gsp_sales_report.settSumPrice= #{settSumPrice}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="GspSalesReportInsert" parameterType="GspSalesReportBean">
+		insert into t_gsp_sales_report 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="salesReportId != null">
+				salesReportId,
+			</if>
+			<if test="dateStr != null">
+				dateStr,
+			</if>
+			<if test="merchName != null">
+				merchName,
+			</if>
+			<if test="weight != null">
+				weight,
+			</if>
+			<if test="settSumPrice != null">
+				settSumPrice,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="salesReportId != null">
+				#{salesReportId,jdbcType=INTEGER},
+			</if>
+			<if test="dateStr != null">
+				#{dateStr,jdbcType=VARCHAR},
+			</if>
+			<if test="merchName != null">
+				#{merchName,jdbcType=VARCHAR},
+			</if>
+			<if test="weight != null">
+				#{weight,jdbcType=VARCHAR},
+			</if>
+			<if test="settSumPrice != null">
+				#{settSumPrice,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="GspSalesReportDelete" parameterType="GspSalesReportBean">
+		delete from t_gsp_sales_report		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="salesReportId != null">
+				salesReportId=#{salesReportId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="GspSalesReportUpdate" parameterType="GspSalesReportBean">
+		update t_gsp_sales_report
+		<set>
+			<if test="dateStr != null">
+				dateStr=#{dateStr,jdbcType=VARCHAR},
+			</if>
+			<if test="merchName != null">
+				merchName=#{merchName,jdbcType=VARCHAR},
+			</if>
+			<if test="weight != null">
+				weight=#{weight,jdbcType=VARCHAR},
+			</if>
+			<if test="settSumPrice != null">
+				settSumPrice=#{settSumPrice,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="salesReportId != null">
+				salesReportId=#{salesReportId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

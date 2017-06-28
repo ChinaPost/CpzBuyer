@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzSellerProductMapper">
+	<resultMap id="CpzSellerProductResultMap" type="com.company.pojo.CpzSellerProductBean">
+	</resultMap>
+	<select id="CpzSellerProductSelect" resultMap="CpzSellerProductResultMap" >
+select * from t_cpz_seller_product 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="shopProductId!= null ">
+ t_cpz_seller_product.shopProductId= #{shopProductId}
+		</if>
+		<if test="productName!= null ">
+ and t_cpz_seller_product.productName= #{productName}
+		</if>
+		<if test="productPic!= null ">
+ and t_cpz_seller_product.productPic= #{productPic}
+		</if>
+		<if test="merchIntro!= null ">
+ and t_cpz_seller_product.merchIntro= #{merchIntro}
+		</if>
+		<if test="description!= null ">
+ and t_cpz_seller_product.description= #{description}
+		</if>
+		<if test="productStatus!= null ">
+ and t_cpz_seller_product.productStatus= #{productStatus}
+		</if>
+		<if test="productId!= null ">
+ and t_cpz_seller_product.productId= #{productId}
+		</if>
+		<if test="shopId!= null ">
+ and t_cpz_seller_product.shopId= #{shopId}
+		</if>
+		<if test="orderNo!= null ">
+ and t_cpz_seller_product.orderNo= #{orderNo}
+		</if>
+		<if test="startTime!= null ">
+ and t_cpz_seller_product.startTime= #{startTime}
+		</if>
+		<if test="endTime!= null ">
+ and t_cpz_seller_product.endTime= #{endTime}
+		</if>
+		<if test="remakr1!= null ">
+ and t_cpz_seller_product.remakr1= #{remakr1}
+		</if>
+		<if test="levelId!= null ">
+ and t_cpz_seller_product.levelId= #{levelId}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzSellerProductInsert" parameterType="CpzSellerProductBean">
+		insert into t_cpz_seller_product 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="shopProductId != null">
+				shopProductId,
+			</if>
+			<if test="productName != null">
+				productName,
+			</if>
+			<if test="productPic != null">
+				productPic,
+			</if>
+			<if test="merchIntro != null">
+				merchIntro,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+			<if test="productStatus != null">
+				productStatus,
+			</if>
+			<if test="productId != null">
+				productId,
+			</if>
+			<if test="shopId != null">
+				shopId,
+			</if>
+			<if test="orderNo != null">
+				orderNo,
+			</if>
+			<if test="startTime != null">
+				startTime,
+			</if>
+			<if test="endTime != null">
+				endTime,
+			</if>
+			<if test="remakr1 != null">
+				remakr1,
+			</if>
+			<if test="levelId != null">
+				levelId,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="shopProductId != null">
+				#{shopProductId,jdbcType=INTEGER},
+			</if>
+			<if test="productName != null">
+				#{productName,jdbcType=VARCHAR},
+			</if>
+			<if test="productPic != null">
+				#{productPic,jdbcType=VARCHAR},
+			</if>
+			<if test="merchIntro != null">
+				#{merchIntro,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+			<if test="productStatus != null">
+				#{productStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="productId != null">
+				#{productId,jdbcType=INTEGER},
+			</if>
+			<if test="shopId != null">
+				#{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="orderNo != null">
+				#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="startTime != null">
+				#{startTime,jdbcType=VARCHAR},
+			</if>
+			<if test="endTime != null">
+				#{endTime,jdbcType=VARCHAR},
+			</if>
+			<if test="remakr1 != null">
+				#{remakr1,jdbcType=VARCHAR},
+			</if>
+			<if test="levelId != null">
+				#{levelId,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzSellerProductDelete" parameterType="CpzSellerProductBean">
+		delete from t_cpz_seller_product		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="shopProductId != null">
+				shopProductId=#{shopProductId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzSellerProductUpdate" parameterType="CpzSellerProductBean">
+		update t_cpz_seller_product
+		<set>
+			<if test="productName != null">
+				productName=#{productName,jdbcType=VARCHAR},
+			</if>
+			<if test="productPic != null">
+				productPic=#{productPic,jdbcType=VARCHAR},
+			</if>
+			<if test="merchIntro != null">
+				merchIntro=#{merchIntro,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				description=#{description,jdbcType=VARCHAR},
+			</if>
+			<if test="productStatus != null">
+				productStatus=#{productStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="productId != null">
+				productId=#{productId,jdbcType=INTEGER},
+			</if>
+			<if test="shopId != null">
+				shopId=#{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="orderNo != null">
+				orderNo=#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="startTime != null">
+				startTime=#{startTime,jdbcType=VARCHAR},
+			</if>
+			<if test="endTime != null">
+				endTime=#{endTime,jdbcType=VARCHAR},
+			</if>
+			<if test="remakr1 != null">
+				remakr1=#{remakr1,jdbcType=VARCHAR},
+			</if>
+			<if test="levelId != null">
+				levelId=#{levelId,jdbcType=INTEGER},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="shopProductId != null">
+				shopProductId=#{shopProductId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

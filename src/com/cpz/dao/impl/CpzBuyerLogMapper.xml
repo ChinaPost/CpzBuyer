@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzBuyerLogMapper">
+	<resultMap id="CpzBuyerLogResultMap" type="com.company.pojo.CpzBuyerLogBean">
+	</resultMap>
+	<select id="CpzBuyerLogSelect" resultMap="CpzBuyerLogResultMap" >
+select * from t_cpz_buyer_log 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="orderLogId!= null ">
+ t_cpz_buyer_log.orderLogId= #{orderLogId}
+		</if>
+		<if test="dealTime!= null ">
+ and t_cpz_buyer_log.dealTime= #{dealTime}
+		</if>
+		<if test="dealType!= null ">
+ and t_cpz_buyer_log.dealType= #{dealType}
+		</if>
+		<if test="dealContent!= null ">
+ and t_cpz_buyer_log.dealContent= #{dealContent}
+		</if>
+		<if test="dealPerson!= null ">
+ and t_cpz_buyer_log.dealPerson= #{dealPerson}
+		</if>
+		<if test="lonValue!= null ">
+ and t_cpz_buyer_log.lonValue= #{lonValue}
+		</if>
+		<if test="latValue!= null ">
+ and t_cpz_buyer_log.latValue= #{latValue}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzBuyerLogInsert" parameterType="CpzBuyerLogBean">
+		insert into t_cpz_buyer_log 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="orderLogId != null">
+				orderLogId,
+			</if>
+			<if test="dealTime != null">
+				dealTime,
+			</if>
+			<if test="dealType != null">
+				dealType,
+			</if>
+			<if test="dealContent != null">
+				dealContent,
+			</if>
+			<if test="dealPerson != null">
+				dealPerson,
+			</if>
+			<if test="lonValue != null">
+				lonValue,
+			</if>
+			<if test="latValue != null">
+				latValue,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="orderLogId != null">
+				#{orderLogId,jdbcType=INTEGER},
+			</if>
+			<if test="dealTime != null">
+				#{dealTime,jdbcType=INTEGER},
+			</if>
+			<if test="dealType != null">
+				#{dealType,jdbcType=VARCHAR},
+			</if>
+			<if test="dealContent != null">
+				#{dealContent,jdbcType=VARCHAR},
+			</if>
+			<if test="dealPerson != null">
+				#{dealPerson,jdbcType=INTEGER},
+			</if>
+			<if test="lonValue != null">
+				#{lonValue,jdbcType=VARCHAR},
+			</if>
+			<if test="latValue != null">
+				#{latValue,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzBuyerLogDelete" parameterType="CpzBuyerLogBean">
+		delete from t_cpz_buyer_log		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="orderLogId != null">
+				orderLogId=#{orderLogId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzBuyerLogUpdate" parameterType="CpzBuyerLogBean">
+		update t_cpz_buyer_log
+		<set>
+			<if test="dealTime != null">
+				dealTime=#{dealTime,jdbcType=INTEGER},
+			</if>
+			<if test="dealType != null">
+				dealType=#{dealType,jdbcType=VARCHAR},
+			</if>
+			<if test="dealContent != null">
+				dealContent=#{dealContent,jdbcType=VARCHAR},
+			</if>
+			<if test="dealPerson != null">
+				dealPerson=#{dealPerson,jdbcType=INTEGER},
+			</if>
+			<if test="lonValue != null">
+				lonValue=#{lonValue,jdbcType=VARCHAR},
+			</if>
+			<if test="latValue != null">
+				latValue=#{latValue,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="orderLogId != null">
+				orderLogId=#{orderLogId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.GspSettlementMapper">
+	<resultMap id="GspSettlementResultMap" type="com.company.pojo.GspSettlementBean">
+	</resultMap>
+	<select id="GspSettlementSelect" resultMap="GspSettlementResultMap" >
+select * from t_gsp_settlement 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="settId!= null ">
+ t_gsp_settlement.settId= #{settId}
+		</if>
+		<if test="orderNo!= null ">
+ and t_gsp_settlement.orderNo= #{orderNo}
+		</if>
+		<if test="settSn!= null ">
+ and t_gsp_settlement.settSn= #{settSn}
+		</if>
+		<if test="status!= null ">
+ and t_gsp_settlement.status= #{status}
+		</if>
+		<if test="sumPrice!= null ">
+ and t_gsp_settlement.sumPrice= #{sumPrice}
+		</if>
+		<if test="sellerId!= null ">
+ and t_gsp_settlement.sellerId= #{sellerId}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="GspSettlementInsert" parameterType="GspSettlementBean">
+		insert into t_gsp_settlement 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="settId != null">
+				settId,
+			</if>
+			<if test="orderNo != null">
+				orderNo,
+			</if>
+			<if test="settSn != null">
+				settSn,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="sumPrice != null">
+				sumPrice,
+			</if>
+			<if test="sellerId != null">
+				sellerId,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="settId != null">
+				#{settId,jdbcType=INTEGER},
+			</if>
+			<if test="orderNo != null">
+				#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="settSn != null">
+				#{settSn,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="sumPrice != null">
+				#{sumPrice,jdbcType=VARCHAR},
+			</if>
+			<if test="sellerId != null">
+				#{sellerId,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="GspSettlementDelete" parameterType="GspSettlementBean">
+		delete from t_gsp_settlement		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="settId != null">
+				settId=#{settId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="GspSettlementUpdate" parameterType="GspSettlementBean">
+		update t_gsp_settlement
+		<set>
+			<if test="orderNo != null">
+				orderNo=#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="settSn != null">
+				settSn=#{settSn,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status=#{status,jdbcType=INTEGER},
+			</if>
+			<if test="sumPrice != null">
+				sumPrice=#{sumPrice,jdbcType=VARCHAR},
+			</if>
+			<if test="sellerId != null">
+				sellerId=#{sellerId,jdbcType=INTEGER},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="settId != null">
+				settId=#{settId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

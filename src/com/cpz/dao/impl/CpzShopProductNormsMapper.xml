@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzShopProductNormsMapper">
+	<resultMap id="CpzShopProductNormsResultMap" type="com.company.pojo.CpzShopProductNormsBean">
+	</resultMap>
+	<select id="CpzShopProductNormsSelect" resultMap="CpzShopProductNormsResultMap" >
+select * from t_cpz_shop_product_norms 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="shopNormsId!= null ">
+ t_cpz_shop_product_norms.shopNormsId= #{shopNormsId}
+		</if>
+		<if test="shopProductId!= null ">
+ and t_cpz_shop_product_norms.shopProductId= #{shopProductId}
+		</if>
+		<if test="normsName!= null ">
+ and t_cpz_shop_product_norms.normsName= #{normsName}
+		</if>
+		<if test="normsPrice!= null ">
+ and t_cpz_shop_product_norms.normsPrice= #{normsPrice}
+		</if>
+		<if test="remark1!= null ">
+ and t_cpz_shop_product_norms.remark1= #{remark1}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzShopProductNormsInsert" parameterType="CpzShopProductNormsBean">
+		insert into t_cpz_shop_product_norms 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="shopNormsId != null">
+				shopNormsId,
+			</if>
+			<if test="shopProductId != null">
+				shopProductId,
+			</if>
+			<if test="normsName != null">
+				normsName,
+			</if>
+			<if test="normsPrice != null">
+				normsPrice,
+			</if>
+			<if test="remark1 != null">
+				remark1,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="shopNormsId != null">
+				#{shopNormsId,jdbcType=INTEGER},
+			</if>
+			<if test="shopProductId != null">
+				#{shopProductId,jdbcType=INTEGER},
+			</if>
+			<if test="normsName != null">
+				#{normsName,jdbcType=VARCHAR},
+			</if>
+			<if test="normsPrice != null">
+				#{normsPrice,jdbcType=VARCHAR},
+			</if>
+			<if test="remark1 != null">
+				#{remark1,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzShopProductNormsDelete" parameterType="CpzShopProductNormsBean">
+		delete from t_cpz_shop_product_norms		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="shopNormsId != null">
+				shopNormsId=#{shopNormsId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzShopProductNormsUpdate" parameterType="CpzShopProductNormsBean">
+		update t_cpz_shop_product_norms
+		<set>
+			<if test="shopProductId != null">
+				shopProductId=#{shopProductId,jdbcType=INTEGER},
+			</if>
+			<if test="normsName != null">
+				normsName=#{normsName,jdbcType=VARCHAR},
+			</if>
+			<if test="normsPrice != null">
+				normsPrice=#{normsPrice,jdbcType=VARCHAR},
+			</if>
+			<if test="remark1 != null">
+				remark1=#{remark1,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="shopNormsId != null">
+				shopNormsId=#{shopNormsId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

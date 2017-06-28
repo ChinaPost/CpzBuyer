@@ -1,4 +1,5 @@
-package com.cpz.pojo;
+package com.company.pojo;
+//商品规格关联表
 public class GspProductNormsMapBean {
 	public Integer Id;/**Id*/
 	public Integer shopProductId;/**商品id*/

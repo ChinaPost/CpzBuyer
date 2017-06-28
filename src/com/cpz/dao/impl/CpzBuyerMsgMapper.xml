@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzBuyerMsgMapper">
+	<resultMap id="CpzBuyerMsgResultMap" type="com.company.pojo.CpzBuyerMsgBean">
+	</resultMap>
+	<select id="CpzBuyerMsgSelect" resultMap="CpzBuyerMsgResultMap" >
+select * from t_cpz_buyer_msg 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="userId!= null ">
+ t_cpz_buyer_msg.userId= #{userId}
+		</if>
+		<if test="moileNo!= null ">
+ and t_cpz_buyer_msg.moileNo= #{moileNo}
+		</if>
+		<if test="nickName!= null ">
+ and t_cpz_buyer_msg.nickName= #{nickName}
+		</if>
+		<if test="sex!= null ">
+ and t_cpz_buyer_msg.sex= #{sex}
+		</if>
+		<if test="headUrl!= null ">
+ and t_cpz_buyer_msg.headUrl= #{headUrl}
+		</if>
+		<if test="cstmLevel!= null ">
+ and t_cpz_buyer_msg.cstmLevel= #{cstmLevel}
+		</if>
+		<if test="lonValue!= null ">
+ and t_cpz_buyer_msg.lonValue= #{lonValue}
+		</if>
+		<if test="latValue!= null ">
+ and t_cpz_buyer_msg.latValue= #{latValue}
+		</if>
+		<if test="createTime!= null ">
+ and t_cpz_buyer_msg.createTime= #{createTime}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzBuyerMsgInsert" parameterType="CpzBuyerMsgBean">
+		insert into t_cpz_buyer_msg 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				userId,
+			</if>
+			<if test="moileNo != null">
+				moileNo,
+			</if>
+			<if test="nickName != null">
+				nickName,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="headUrl != null">
+				headUrl,
+			</if>
+			<if test="cstmLevel != null">
+				cstmLevel,
+			</if>
+			<if test="lonValue != null">
+				lonValue,
+			</if>
+			<if test="latValue != null">
+				latValue,
+			</if>
+			<if test="createTime != null">
+				createTime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="moileNo != null">
+				#{moileNo,jdbcType=VARCHAR},
+			</if>
+			<if test="nickName != null">
+				#{nickName,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="headUrl != null">
+				#{headUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="cstmLevel != null">
+				#{cstmLevel,jdbcType=VARCHAR},
+			</if>
+			<if test="lonValue != null">
+				#{lonValue,jdbcType=VARCHAR},
+			</if>
+			<if test="latValue != null">
+				#{latValue,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzBuyerMsgDelete" parameterType="CpzBuyerMsgBean">
+		delete from t_cpz_buyer_msg		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="userId != null">
+				userId=#{userId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzBuyerMsgUpdate" parameterType="CpzBuyerMsgBean">
+		update t_cpz_buyer_msg
+		<set>
+			<if test="moileNo != null">
+				moileNo=#{moileNo,jdbcType=VARCHAR},
+			</if>
+			<if test="nickName != null">
+				nickName=#{nickName,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex=#{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="headUrl != null">
+				headUrl=#{headUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="cstmLevel != null">
+				cstmLevel=#{cstmLevel,jdbcType=VARCHAR},
+			</if>
+			<if test="lonValue != null">
+				lonValue=#{lonValue,jdbcType=VARCHAR},
+			</if>
+			<if test="latValue != null">
+				latValue=#{latValue,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				createTime=#{createTime,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="userId != null">
+				userId=#{userId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

@@ -1,30 +1,20 @@
 package com.cpz.controller;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
-
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.support.RequestContext;
 
 import com.cpz.pojo.CpzBuyerCollectShopBean;
 import com.cpz.service.impl.CpzBuyerCollectShopService;
 import com.framework.controller.BaseController;
 import com.framework.utils.CommonUtil;
 import com.framework.utils.Constant;
-import com.framework.utils.SpringBeanManger;
 
 /**买家店铺收藏信息表*/
 @Controller
@@ -35,10 +25,7 @@ public class CpzBuyerCollectShopController extends BaseController {
 private CpzBuyerCollectShopService cpzBuyerCollectShopService;
 	@RequestMapping("/query.do")
 	public @ResponseBody Map<String, Object> query(@RequestParam Map reqMap) {
-		if (null == reqMap || reqMap.isEmpty())
-		{
-			reqMap=new HashMap();
-		}
+		//if (null == reqMap || reqMap.isEmpty())
 			//return CommonUtil.ReturnWarp(Constant.TRAN_PARAERCODE, Constant.ERRORTYPE);
 List<CpzBuyerCollectShopBean> cpzbuyercollectshopBeans=null;
 try {

@@ -1,4 +1,5 @@
-package com.cpz.pojo;
+package com.company.pojo;
+//商品分类表
 public class CpzProductLevelBean {
 	public Integer productCategoryId;/**级别代号顺序号，从1开始*/
 	public String productCategoryName;/**级别名称*/

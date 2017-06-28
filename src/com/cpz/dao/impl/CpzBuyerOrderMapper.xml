@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzBuyerOrderMapper">
+	<resultMap id="CpzBuyerOrderResultMap" type="com.company.pojo.CpzBuyerOrderBean">
+	</resultMap>
+	<select id="CpzBuyerOrderSelect" resultMap="CpzBuyerOrderResultMap" >
+select * from t_cpz_buyer_order 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="orderNo!= null ">
+ t_cpz_buyer_order.orderNo= #{orderNo}
+		</if>
+		<if test="userId!= null ">
+ and t_cpz_buyer_order.userId= #{userId}
+		</if>
+		<if test="userName!= null ">
+ and t_cpz_buyer_order.userName= #{userName}
+		</if>
+		<if test="userPhone!= null ">
+ and t_cpz_buyer_order.userPhone= #{userPhone}
+		</if>
+		<if test="orderStatus!= null ">
+ and t_cpz_buyer_order.orderStatus= #{orderStatus}
+		</if>
+		<if test="totalMoney!= null ">
+ and t_cpz_buyer_order.totalMoney= #{totalMoney}
+		</if>
+		<if test="payMoney!= null ">
+ and t_cpz_buyer_order.payMoney= #{payMoney}
+		</if>
+		<if test="payStatus!= null ">
+ and t_cpz_buyer_order.payStatus= #{payStatus}
+		</if>
+		<if test="shopId!= null ">
+ and t_cpz_buyer_order.shopId= #{shopId}
+		</if>
+		<if test="marketId!= null ">
+ and t_cpz_buyer_order.marketId= #{marketId}
+		</if>
+		<if test="shipType!= null ">
+ and t_cpz_buyer_order.shipType= #{shipType}
+		</if>
+		<if test="provCode!= null ">
+ and t_cpz_buyer_order.provCode= #{provCode}
+		</if>
+		<if test="cityCode!= null ">
+ and t_cpz_buyer_order.cityCode= #{cityCode}
+		</if>
+		<if test="countyCode!= null ">
+ and t_cpz_buyer_order.countyCode= #{countyCode}
+		</if>
+		<if test="detailAddr!= null ">
+ and t_cpz_buyer_order.detailAddr= #{detailAddr}
+		</if>
+		<if test="invoiceType!= null ">
+ and t_cpz_buyer_order.invoiceType= #{invoiceType}
+		</if>
+		<if test="invoiceTitle!= null ">
+ and t_cpz_buyer_order.invoiceTitle= #{invoiceTitle}
+		</if>
+		<if test="orderRemark!= null ">
+ and t_cpz_buyer_order.orderRemark= #{orderRemark}
+		</if>
+		<if test="getProductTime!= null ">
+ and t_cpz_buyer_order.getProductTime= #{getProductTime}
+		</if>
+		<if test="bookTime!= null ">
+ and t_cpz_buyer_order.bookTime= #{bookTime}
+		</if>
+		<if test="payTime!= null ">
+ and t_cpz_buyer_order.payTime= #{payTime}
+		</if>
+		<if test="channelNo!= null ">
+ and t_cpz_buyer_order.channelNo= #{channelNo}
+		</if>
+		<if test="remark1!= null ">
+ and t_cpz_buyer_order.remark1= #{remark1}
+		</if>
+		<if test="remark2!= null ">
+ and t_cpz_buyer_order.remark2= #{remark2}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzBuyerOrderInsert" parameterType="CpzBuyerOrderBean">
+		insert into t_cpz_buyer_order 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="orderNo != null">
+				orderNo,
+			</if>
+			<if test="userId != null">
+				userId,
+			</if>
+			<if test="userName != null">
+				userName,
+			</if>
+			<if test="userPhone != null">
+				userPhone,
+			</if>
+			<if test="orderStatus != null">
+				orderStatus,
+			</if>
+			<if test="totalMoney != null">
+				totalMoney,
+			</if>
+			<if test="payMoney != null">
+				payMoney,
+			</if>
+			<if test="payStatus != null">
+				payStatus,
+			</if>
+			<if test="shopId != null">
+				shopId,
+			</if>
+			<if test="marketId != null">
+				marketId,
+			</if>
+			<if test="shipType != null">
+				shipType,
+			</if>
+			<if test="provCode != null">
+				provCode,
+			</if>
+			<if test="cityCode != null">
+				cityCode,
+			</if>
+			<if test="countyCode != null">
+				countyCode,
+			</if>
+			<if test="detailAddr != null">
+				detailAddr,
+			</if>
+			<if test="invoiceType != null">
+				invoiceType,
+			</if>
+			<if test="invoiceTitle != null">
+				invoiceTitle,
+			</if>
+			<if test="orderRemark != null">
+				orderRemark,
+			</if>
+			<if test="getProductTime != null">
+				getProductTime,
+			</if>
+			<if test="bookTime != null">
+				bookTime,
+			</if>
+			<if test="payTime != null">
+				payTime,
+			</if>
+			<if test="channelNo != null">
+				channelNo,
+			</if>
+			<if test="remark1 != null">
+				remark1,
+			</if>
+			<if test="remark2 != null">
+				remark2,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="orderNo != null">
+				#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="userPhone != null">
+				#{userPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="orderStatus != null">
+				#{orderStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="totalMoney != null">
+				#{totalMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="payMoney != null">
+				#{payMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="payStatus != null">
+				#{payStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="shopId != null">
+				#{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="marketId != null">
+				#{marketId,jdbcType=INTEGER},
+			</if>
+			<if test="shipType != null">
+				#{shipType,jdbcType=VARCHAR},
+			</if>
+			<if test="provCode != null">
+				#{provCode,jdbcType=VARCHAR},
+			</if>
+			<if test="cityCode != null">
+				#{cityCode,jdbcType=VARCHAR},
+			</if>
+			<if test="countyCode != null">
+				#{countyCode,jdbcType=VARCHAR},
+			</if>
+			<if test="detailAddr != null">
+				#{detailAddr,jdbcType=VARCHAR},
+			</if>
+			<if test="invoiceType != null">
+				#{invoiceType,jdbcType=VARCHAR},
+			</if>
+			<if test="invoiceTitle != null">
+				#{invoiceTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="orderRemark != null">
+				#{orderRemark,jdbcType=VARCHAR},
+			</if>
+			<if test="getProductTime != null">
+				#{getProductTime,jdbcType=VARCHAR},
+			</if>
+			<if test="bookTime != null">
+				#{bookTime,jdbcType=VARCHAR},
+			</if>
+			<if test="payTime != null">
+				#{payTime,jdbcType=VARCHAR},
+			</if>
+			<if test="channelNo != null">
+				#{channelNo,jdbcType=VARCHAR},
+			</if>
+			<if test="remark1 != null">
+				#{remark1,jdbcType=VARCHAR},
+			</if>
+			<if test="remark2 != null">
+				#{remark2,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzBuyerOrderDelete" parameterType="CpzBuyerOrderBean">
+		delete from t_cpz_buyer_order		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="orderNo != null">
+				orderNo=#{orderNo,jdbcType=VARCHAR} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzBuyerOrderUpdate" parameterType="CpzBuyerOrderBean">
+		update t_cpz_buyer_order
+		<set>
+			<if test="userId != null">
+				userId=#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="userName != null">
+				userName=#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="userPhone != null">
+				userPhone=#{userPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="orderStatus != null">
+				orderStatus=#{orderStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="totalMoney != null">
+				totalMoney=#{totalMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="payMoney != null">
+				payMoney=#{payMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="payStatus != null">
+				payStatus=#{payStatus,jdbcType=VARCHAR},
+			</if>
+			<if test="shopId != null">
+				shopId=#{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="marketId != null">
+				marketId=#{marketId,jdbcType=INTEGER},
+			</if>
+			<if test="shipType != null">
+				shipType=#{shipType,jdbcType=VARCHAR},
+			</if>
+			<if test="provCode != null">
+				provCode=#{provCode,jdbcType=VARCHAR},
+			</if>
+			<if test="cityCode != null">
+				cityCode=#{cityCode,jdbcType=VARCHAR},
+			</if>
+			<if test="countyCode != null">
+				countyCode=#{countyCode,jdbcType=VARCHAR},
+			</if>
+			<if test="detailAddr != null">
+				detailAddr=#{detailAddr,jdbcType=VARCHAR},
+			</if>
+			<if test="invoiceType != null">
+				invoiceType=#{invoiceType,jdbcType=VARCHAR},
+			</if>
+			<if test="invoiceTitle != null">
+				invoiceTitle=#{invoiceTitle,jdbcType=VARCHAR},
+			</if>
+			<if test="orderRemark != null">
+				orderRemark=#{orderRemark,jdbcType=VARCHAR},
+			</if>
+			<if test="getProductTime != null">
+				getProductTime=#{getProductTime,jdbcType=VARCHAR},
+			</if>
+			<if test="bookTime != null">
+				bookTime=#{bookTime,jdbcType=VARCHAR},
+			</if>
+			<if test="payTime != null">
+				payTime=#{payTime,jdbcType=VARCHAR},
+			</if>
+			<if test="channelNo != null">
+				channelNo=#{channelNo,jdbcType=VARCHAR},
+			</if>
+			<if test="remark1 != null">
+				remark1=#{remark1,jdbcType=VARCHAR},
+			</if>
+			<if test="remark2 != null">
+				remark2=#{remark2,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="orderNo != null">
+				orderNo=#{orderNo,jdbcType=VARCHAR} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

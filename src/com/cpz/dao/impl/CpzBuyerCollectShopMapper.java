@@ -1,9 +1,4 @@
-package com.cpz.dao.impl;
-import java.util.List;
-import java.util.Map;
-
-import com.cpz.pojo.CpzBuyerCollectShopBean;
-
+package com.company.dao.impl;
 //买家店铺收藏信息表
 public interface CpzBuyerCollectShopMapper {
 List<CpzBuyerCollectShopBean> CpzBuyerCollectShopSelect(Map para);

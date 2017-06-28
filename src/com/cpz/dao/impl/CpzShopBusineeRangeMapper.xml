@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzShopBusineeRangeMapper">
+	<resultMap id="CpzShopBusineeRangeResultMap" type="com.company.pojo.CpzShopBusineeRangeBean">
+	</resultMap>
+	<select id="CpzShopBusineeRangeSelect" resultMap="CpzShopBusineeRangeResultMap" >
+select * from t_cpz_shop_businee_range 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="shopBusineeRangeId!= null ">
+ t_cpz_shop_businee_range.shopBusineeRangeId= #{shopBusineeRangeId}
+		</if>
+		<if test="busiName!= null ">
+ and t_cpz_shop_businee_range.busiName= #{busiName}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzShopBusineeRangeInsert" parameterType="CpzShopBusineeRangeBean">
+		insert into t_cpz_shop_businee_range 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="shopBusineeRangeId != null">
+				shopBusineeRangeId,
+			</if>
+			<if test="busiName != null">
+				busiName,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="shopBusineeRangeId != null">
+				#{shopBusineeRangeId,jdbcType=INTEGER},
+			</if>
+			<if test="busiName != null">
+				#{busiName,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzShopBusineeRangeDelete" parameterType="CpzShopBusineeRangeBean">
+		delete from t_cpz_shop_businee_range		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="shopBusineeRangeId != null">
+				shopBusineeRangeId=#{shopBusineeRangeId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzShopBusineeRangeUpdate" parameterType="CpzShopBusineeRangeBean">
+		update t_cpz_shop_businee_range
+		<set>
+			<if test="busiName != null">
+				busiName=#{busiName,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="shopBusineeRangeId != null">
+				shopBusineeRangeId=#{shopBusineeRangeId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

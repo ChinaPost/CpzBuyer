@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzBuyerOrderProductMapper">
+	<resultMap id="CpzBuyerOrderProductResultMap" type="com.company.pojo.CpzBuyerOrderProductBean">
+	</resultMap>
+	<select id="CpzBuyerOrderProductSelect" resultMap="CpzBuyerOrderProductResultMap" >
+select * from t_cpz_buyer_order_product 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="orderNo!= null ">
+ t_cpz_buyer_order_product.orderNo= #{orderNo}
+		</if>
+		<if test="shopProductId!= null ">
+ and t_cpz_buyer_order_product.shopProductId= #{shopProductId}
+		</if>
+		<if test="shopProductName!= null ">
+ and t_cpz_buyer_order_product.shopProductName= #{shopProductName}
+		</if>
+		<if test="levelId!= null ">
+ and t_cpz_buyer_order_product.levelId= #{levelId}
+		</if>
+		<if test="productType!= null ">
+ and t_cpz_buyer_order_product.productType= #{productType}
+		</if>
+		<if test="shopNormsId!= null ">
+ and t_cpz_buyer_order_product.shopNormsId= #{shopNormsId}
+		</if>
+		<if test="shopNormsNum!= null ">
+ and t_cpz_buyer_order_product.shopNormsNum= #{shopNormsNum}
+		</if>
+		<if test="shopNormsPrice!= null ">
+ and t_cpz_buyer_order_product.shopNormsPrice= #{shopNormsPrice}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzBuyerOrderProductInsert" parameterType="CpzBuyerOrderProductBean">
+		insert into t_cpz_buyer_order_product 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="orderNo != null">
+				orderNo,
+			</if>
+			<if test="shopProductId != null">
+				shopProductId,
+			</if>
+			<if test="shopProductName != null">
+				shopProductName,
+			</if>
+			<if test="levelId != null">
+				levelId,
+			</if>
+			<if test="productType != null">
+				productType,
+			</if>
+			<if test="shopNormsId != null">
+				shopNormsId,
+			</if>
+			<if test="shopNormsNum != null">
+				shopNormsNum,
+			</if>
+			<if test="shopNormsPrice != null">
+				shopNormsPrice,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="orderNo != null">
+				#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="shopProductId != null">
+				#{shopProductId,jdbcType=INTEGER},
+			</if>
+			<if test="shopProductName != null">
+				#{shopProductName,jdbcType=VARCHAR},
+			</if>
+			<if test="levelId != null">
+				#{levelId,jdbcType=INTEGER},
+			</if>
+			<if test="productType != null">
+				#{productType,jdbcType=VARCHAR},
+			</if>
+			<if test="shopNormsId != null">
+				#{shopNormsId,jdbcType=VARCHAR},
+			</if>
+			<if test="shopNormsNum != null">
+				#{shopNormsNum,jdbcType=INTEGER},
+			</if>
+			<if test="shopNormsPrice != null">
+				#{shopNormsPrice,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzBuyerOrderProductDelete" parameterType="CpzBuyerOrderProductBean">
+		delete from t_cpz_buyer_order_product		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="orderNo != null">
+				orderNo=#{orderNo,jdbcType=VARCHAR} and 
+			</if>
+			<if test="shopProductId != null">
+				shopProductId=#{shopProductId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzBuyerOrderProductUpdate" parameterType="CpzBuyerOrderProductBean">
+		update t_cpz_buyer_order_product
+		<set>
+			<if test="shopProductName != null">
+				shopProductName=#{shopProductName,jdbcType=VARCHAR},
+			</if>
+			<if test="levelId != null">
+				levelId=#{levelId,jdbcType=INTEGER},
+			</if>
+			<if test="productType != null">
+				productType=#{productType,jdbcType=VARCHAR},
+			</if>
+			<if test="shopNormsId != null">
+				shopNormsId=#{shopNormsId,jdbcType=VARCHAR},
+			</if>
+			<if test="shopNormsNum != null">
+				shopNormsNum=#{shopNormsNum,jdbcType=INTEGER},
+			</if>
+			<if test="shopNormsPrice != null">
+				shopNormsPrice=#{shopNormsPrice,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="orderNo != null">
+				orderNo=#{orderNo,jdbcType=VARCHAR} and 
+			</if>
+			<if test="shopProductId != null">
+				shopProductId=#{shopProductId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

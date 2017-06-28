@@ -1,4 +1,5 @@
-package com.cpz.pojo;
+package com.company.pojo;
+//平台商品图片表
 public class CpzPlatProductPicBean {
 	public Integer productId;/**商品代号*/
 	public String picName;/**图片名称*/

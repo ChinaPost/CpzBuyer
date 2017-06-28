@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzMarketMapper">
+	<resultMap id="CpzMarketResultMap" type="com.company.pojo.CpzMarketBean">
+	</resultMap>
+	<select id="CpzMarketSelect" resultMap="CpzMarketResultMap" >
+select * from t_cpz_market 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="marketId!= null ">
+ t_cpz_market.marketId= #{marketId}
+		</if>
+		<if test="marketName!= null ">
+ and t_cpz_market.marketName= #{marketName}
+		</if>
+		<if test="lonValue!= null ">
+ and t_cpz_market.lonValue= #{lonValue}
+		</if>
+		<if test="latValue!= null ">
+ and t_cpz_market.latValue= #{latValue}
+		</if>
+		<if test="provCode!= null ">
+ and t_cpz_market.provCode= #{provCode}
+		</if>
+		<if test="cityCode!= null ">
+ and t_cpz_market.cityCode= #{cityCode}
+		</if>
+		<if test="countyCode!= null ">
+ and t_cpz_market.countyCode= #{countyCode}
+		</if>
+		<if test="marketArea!= null ">
+ and t_cpz_market.marketArea= #{marketArea}
+		</if>
+		<if test="marketAddr!= null ">
+ and t_cpz_market.marketAddr= #{marketAddr}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzMarketInsert" parameterType="CpzMarketBean">
+		insert into t_cpz_market 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="marketId != null">
+				marketId,
+			</if>
+			<if test="marketName != null">
+				marketName,
+			</if>
+			<if test="lonValue != null">
+				lonValue,
+			</if>
+			<if test="latValue != null">
+				latValue,
+			</if>
+			<if test="provCode != null">
+				provCode,
+			</if>
+			<if test="cityCode != null">
+				cityCode,
+			</if>
+			<if test="countyCode != null">
+				countyCode,
+			</if>
+			<if test="marketArea != null">
+				marketArea,
+			</if>
+			<if test="marketAddr != null">
+				marketAddr,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="marketId != null">
+				#{marketId,jdbcType=INTEGER},
+			</if>
+			<if test="marketName != null">
+				#{marketName,jdbcType=VARCHAR},
+			</if>
+			<if test="lonValue != null">
+				#{lonValue,jdbcType=VARCHAR},
+			</if>
+			<if test="latValue != null">
+				#{latValue,jdbcType=VARCHAR},
+			</if>
+			<if test="provCode != null">
+				#{provCode,jdbcType=VARCHAR},
+			</if>
+			<if test="cityCode != null">
+				#{cityCode,jdbcType=VARCHAR},
+			</if>
+			<if test="countyCode != null">
+				#{countyCode,jdbcType=VARCHAR},
+			</if>
+			<if test="marketArea != null">
+				#{marketArea,jdbcType=VARCHAR},
+			</if>
+			<if test="marketAddr != null">
+				#{marketAddr,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzMarketDelete" parameterType="CpzMarketBean">
+		delete from t_cpz_market		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="marketId != null">
+				marketId=#{marketId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzMarketUpdate" parameterType="CpzMarketBean">
+		update t_cpz_market
+		<set>
+			<if test="marketName != null">
+				marketName=#{marketName,jdbcType=VARCHAR},
+			</if>
+			<if test="lonValue != null">
+				lonValue=#{lonValue,jdbcType=VARCHAR},
+			</if>
+			<if test="latValue != null">
+				latValue=#{latValue,jdbcType=VARCHAR},
+			</if>
+			<if test="provCode != null">
+				provCode=#{provCode,jdbcType=VARCHAR},
+			</if>
+			<if test="cityCode != null">
+				cityCode=#{cityCode,jdbcType=VARCHAR},
+			</if>
+			<if test="countyCode != null">
+				countyCode=#{countyCode,jdbcType=VARCHAR},
+			</if>
+			<if test="marketArea != null">
+				marketArea=#{marketArea,jdbcType=VARCHAR},
+			</if>
+			<if test="marketAddr != null">
+				marketAddr=#{marketAddr,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="marketId != null">
+				marketId=#{marketId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

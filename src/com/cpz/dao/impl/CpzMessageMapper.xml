@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzMessageMapper">
+	<resultMap id="CpzMessageResultMap" type="com.company.pojo.CpzMessageBean">
+	</resultMap>
+	<select id="CpzMessageSelect" resultMap="CpzMessageResultMap" >
+select * from t_cpz_message 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="messageId!= null ">
+ t_cpz_message.messageId= #{messageId}
+		</if>
+		<if test="messageDetail!= null ">
+ and t_cpz_message.messageDetail= #{messageDetail}
+		</if>
+		<if test="messageType!= null ">
+ and t_cpz_message.messageType= #{messageType}
+		</if>
+		<if test="readMessageFlag!= null ">
+ and t_cpz_message.readMessageFlag= #{readMessageFlag}
+		</if>
+		<if test="systemNo!= null ">
+ and t_cpz_message.systemNo= #{systemNo}
+		</if>
+		<if test="messageChannel!= null ">
+ and t_cpz_message.messageChannel= #{messageChannel}
+		</if>
+		<if test="messageLinkType!= null ">
+ and t_cpz_message.messageLinkType= #{messageLinkType}
+		</if>
+		<if test="messageLinkPara!= null ">
+ and t_cpz_message.messageLinkPara= #{messageLinkPara}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzMessageInsert" parameterType="CpzMessageBean">
+		insert into t_cpz_message 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="messageId != null">
+				messageId,
+			</if>
+			<if test="messageDetail != null">
+				messageDetail,
+			</if>
+			<if test="messageType != null">
+				messageType,
+			</if>
+			<if test="readMessageFlag != null">
+				readMessageFlag,
+			</if>
+			<if test="systemNo != null">
+				systemNo,
+			</if>
+			<if test="messageChannel != null">
+				messageChannel,
+			</if>
+			<if test="messageLinkType != null">
+				messageLinkType,
+			</if>
+			<if test="messageLinkPara != null">
+				messageLinkPara,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="messageId != null">
+				#{messageId,jdbcType=INTEGER},
+			</if>
+			<if test="messageDetail != null">
+				#{messageDetail,jdbcType=VARCHAR},
+			</if>
+			<if test="messageType != null">
+				#{messageType,jdbcType=VARCHAR},
+			</if>
+			<if test="readMessageFlag != null">
+				#{readMessageFlag,jdbcType=INTEGER},
+			</if>
+			<if test="systemNo != null">
+				#{systemNo,jdbcType=INTEGER},
+			</if>
+			<if test="messageChannel != null">
+				#{messageChannel,jdbcType=VARCHAR},
+			</if>
+			<if test="messageLinkType != null">
+				#{messageLinkType,jdbcType=VARCHAR},
+			</if>
+			<if test="messageLinkPara != null">
+				#{messageLinkPara,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzMessageDelete" parameterType="CpzMessageBean">
+		delete from t_cpz_message		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="messageId != null">
+				messageId=#{messageId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzMessageUpdate" parameterType="CpzMessageBean">
+		update t_cpz_message
+		<set>
+			<if test="messageDetail != null">
+				messageDetail=#{messageDetail,jdbcType=VARCHAR},
+			</if>
+			<if test="messageType != null">
+				messageType=#{messageType,jdbcType=VARCHAR},
+			</if>
+			<if test="readMessageFlag != null">
+				readMessageFlag=#{readMessageFlag,jdbcType=INTEGER},
+			</if>
+			<if test="systemNo != null">
+				systemNo=#{systemNo,jdbcType=INTEGER},
+			</if>
+			<if test="messageChannel != null">
+				messageChannel=#{messageChannel,jdbcType=VARCHAR},
+			</if>
+			<if test="messageLinkType != null">
+				messageLinkType=#{messageLinkType,jdbcType=VARCHAR},
+			</if>
+			<if test="messageLinkPara != null">
+				messageLinkPara=#{messageLinkPara,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="messageId != null">
+				messageId=#{messageId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

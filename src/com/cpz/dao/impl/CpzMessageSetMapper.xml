@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzMessageSetMapper">
+	<resultMap id="CpzMessageSetResultMap" type="com.company.pojo.CpzMessageSetBean">
+	</resultMap>
+	<select id="CpzMessageSetSelect" resultMap="CpzMessageSetResultMap" >
+select * from t_cpz_message_set 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="messageSetId!= null ">
+ t_cpz_message_set.messageSetId= #{messageSetId}
+		</if>
+		<if test="messageType!= null ">
+ and t_cpz_message_set.messageType= #{messageType}
+		</if>
+		<if test="systemNo!= null ">
+ and t_cpz_message_set.systemNo= #{systemNo}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzMessageSetInsert" parameterType="CpzMessageSetBean">
+		insert into t_cpz_message_set 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="messageSetId != null">
+				messageSetId,
+			</if>
+			<if test="messageType != null">
+				messageType,
+			</if>
+			<if test="systemNo != null">
+				systemNo,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="messageSetId != null">
+				#{messageSetId,jdbcType=INTEGER},
+			</if>
+			<if test="messageType != null">
+				#{messageType,jdbcType=INTEGER},
+			</if>
+			<if test="systemNo != null">
+				#{systemNo,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzMessageSetDelete" parameterType="CpzMessageSetBean">
+		delete from t_cpz_message_set		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="messageSetId != null">
+				messageSetId=#{messageSetId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzMessageSetUpdate" parameterType="CpzMessageSetBean">
+		update t_cpz_message_set
+		<set>
+			<if test="messageType != null">
+				messageType=#{messageType,jdbcType=INTEGER},
+			</if>
+			<if test="systemNo != null">
+				systemNo=#{systemNo,jdbcType=INTEGER},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="messageSetId != null">
+				messageSetId=#{messageSetId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

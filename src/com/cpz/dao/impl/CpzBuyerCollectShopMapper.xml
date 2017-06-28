@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cpz.dao.impl.CpzBuyerCollectShopMapper">
-	<resultMap id="CpzBuyerCollectShopResultMap" type="com.cpz.pojo.CpzBuyerCollectShopBean">
+<mapper namespace="com.company.dao.impl.CpzBuyerCollectShopMapper">
+	<resultMap id="CpzBuyerCollectShopResultMap" type="com.company.pojo.CpzBuyerCollectShopBean">
 	</resultMap>
 	<select id="CpzBuyerCollectShopSelect" resultMap="CpzBuyerCollectShopResultMap" >
-select * from t_cpz_buyer_collect_shop  
+select * from t_cpz_buyer_collect_shop 
 <trim prefix="WHERE" prefixOverrides="AND |OR ">
-<if test="userId!= null ">
+ 		<if test="userId!= null ">
  t_cpz_buyer_collect_shop.userId= #{userId}
 		</if>
 		<if test="shopId!= null ">
@@ -24,7 +24,8 @@ select * from t_cpz_buyer_collect_shop
 		<if test="colletcTime!= null ">
  and t_cpz_buyer_collect_shop.colletcTime= #{colletcTime}
 		</if>
-		</trim>
+
+</trim>
 	</select>
 
 

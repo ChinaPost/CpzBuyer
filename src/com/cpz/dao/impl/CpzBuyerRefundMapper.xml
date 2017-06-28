@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzBuyerRefundMapper">
+	<resultMap id="CpzBuyerRefundResultMap" type="com.company.pojo.CpzBuyerRefundBean">
+	</resultMap>
+	<select id="CpzBuyerRefundSelect" resultMap="CpzBuyerRefundResultMap" >
+select * from t_cpz_buyer_refund 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="refundId!= null ">
+ t_cpz_buyer_refund.refundId= #{refundId}
+		</if>
+		<if test="userId!= null ">
+ and t_cpz_buyer_refund.userId= #{userId}
+		</if>
+		<if test="orderNo!= null ">
+ and t_cpz_buyer_refund.orderNo= #{orderNo}
+		</if>
+		<if test="refundReason!= null ">
+ and t_cpz_buyer_refund.refundReason= #{refundReason}
+		</if>
+		<if test="isConsultSeller!= null ">
+ and t_cpz_buyer_refund.isConsultSeller= #{isConsultSeller}
+		</if>
+		<if test="refundStyle!= null ">
+ and t_cpz_buyer_refund.refundStyle= #{refundStyle}
+		</if>
+		<if test="orderMoney!= null ">
+ and t_cpz_buyer_refund.orderMoney= #{orderMoney}
+		</if>
+		<if test="applyMoney!= null ">
+ and t_cpz_buyer_refund.applyMoney= #{applyMoney}
+		</if>
+		<if test="applyTime!= null ">
+ and t_cpz_buyer_refund.applyTime= #{applyTime}
+		</if>
+		<if test="refundTime!= null ">
+ and t_cpz_buyer_refund.refundTime= #{refundTime}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzBuyerRefundInsert" parameterType="CpzBuyerRefundBean">
+		insert into t_cpz_buyer_refund 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="refundId != null">
+				refundId,
+			</if>
+			<if test="userId != null">
+				userId,
+			</if>
+			<if test="orderNo != null">
+				orderNo,
+			</if>
+			<if test="refundReason != null">
+				refundReason,
+			</if>
+			<if test="isConsultSeller != null">
+				isConsultSeller,
+			</if>
+			<if test="refundStyle != null">
+				refundStyle,
+			</if>
+			<if test="orderMoney != null">
+				orderMoney,
+			</if>
+			<if test="applyMoney != null">
+				applyMoney,
+			</if>
+			<if test="applyTime != null">
+				applyTime,
+			</if>
+			<if test="refundTime != null">
+				refundTime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="refundId != null">
+				#{refundId,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=VARCHAR},
+			</if>
+			<if test="orderNo != null">
+				#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="refundReason != null">
+				#{refundReason,jdbcType=VARCHAR},
+			</if>
+			<if test="isConsultSeller != null">
+				#{isConsultSeller,jdbcType=VARCHAR},
+			</if>
+			<if test="refundStyle != null">
+				#{refundStyle,jdbcType=VARCHAR},
+			</if>
+			<if test="orderMoney != null">
+				#{orderMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="applyMoney != null">
+				#{applyMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="applyTime != null">
+				#{applyTime,jdbcType=VARCHAR},
+			</if>
+			<if test="refundTime != null">
+				#{refundTime,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzBuyerRefundDelete" parameterType="CpzBuyerRefundBean">
+		delete from t_cpz_buyer_refund		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="refundId != null">
+				refundId=#{refundId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzBuyerRefundUpdate" parameterType="CpzBuyerRefundBean">
+		update t_cpz_buyer_refund
+		<set>
+			<if test="userId != null">
+				userId=#{userId,jdbcType=VARCHAR},
+			</if>
+			<if test="orderNo != null">
+				orderNo=#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="refundReason != null">
+				refundReason=#{refundReason,jdbcType=VARCHAR},
+			</if>
+			<if test="isConsultSeller != null">
+				isConsultSeller=#{isConsultSeller,jdbcType=VARCHAR},
+			</if>
+			<if test="refundStyle != null">
+				refundStyle=#{refundStyle,jdbcType=VARCHAR},
+			</if>
+			<if test="orderMoney != null">
+				orderMoney=#{orderMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="applyMoney != null">
+				applyMoney=#{applyMoney,jdbcType=VARCHAR},
+			</if>
+			<if test="applyTime != null">
+				applyTime=#{applyTime,jdbcType=VARCHAR},
+			</if>
+			<if test="refundTime != null">
+				refundTime=#{refundTime,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="refundId != null">
+				refundId=#{refundId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

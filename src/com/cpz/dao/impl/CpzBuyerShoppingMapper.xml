@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.company.dao.impl.CpzBuyerShoppingMapper">
+	<resultMap id="CpzBuyerShoppingResultMap" type="com.company.pojo.CpzBuyerShoppingBean">
+	</resultMap>
+	<select id="CpzBuyerShoppingSelect" resultMap="CpzBuyerShoppingResultMap" >
+select * from t_cpz_buyer_shopping 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="shopCarId!= null ">
+ t_cpz_buyer_shopping.shopCarId= #{shopCarId}
+		</if>
+		<if test="userId!= null ">
+ and t_cpz_buyer_shopping.userId= #{userId}
+		</if>
+		<if test="shopProductId!= null ">
+ and t_cpz_buyer_shopping.shopProductId= #{shopProductId}
+		</if>
+		<if test="shopId!= null ">
+ and t_cpz_buyer_shopping.shopId= #{shopId}
+		</if>
+		<if test="marketId!= null ">
+ and t_cpz_buyer_shopping.marketId= #{marketId}
+		</if>
+		<if test="normsId!= null ">
+ and t_cpz_buyer_shopping.normsId= #{normsId}
+		</if>
+		<if test="buyNum!= null ">
+ and t_cpz_buyer_shopping.buyNum= #{buyNum}
+		</if>
+		<if test="normsPrice!= null ">
+ and t_cpz_buyer_shopping.normsPrice= #{normsPrice}
+		</if>
+		<if test="createTime!= null ">
+ and t_cpz_buyer_shopping.createTime= #{createTime}
+		</if>
+		<if test="remark!= null ">
+ and t_cpz_buyer_shopping.remark= #{remark}
+		</if>
+
+</trim>
+	</select>
+
+
+	<insert id="CpzBuyerShoppingInsert" parameterType="CpzBuyerShoppingBean">
+		insert into t_cpz_buyer_shopping 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="shopCarId != null">
+				shopCarId,
+			</if>
+			<if test="userId != null">
+				userId,
+			</if>
+			<if test="shopProductId != null">
+				shopProductId,
+			</if>
+			<if test="shopId != null">
+				shopId,
+			</if>
+			<if test="marketId != null">
+				marketId,
+			</if>
+			<if test="normsId != null">
+				normsId,
+			</if>
+			<if test="buyNum != null">
+				buyNum,
+			</if>
+			<if test="normsPrice != null">
+				normsPrice,
+			</if>
+			<if test="createTime != null">
+				createTime,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="shopCarId != null">
+				#{shopCarId,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="shopProductId != null">
+				#{shopProductId,jdbcType=INTEGER},
+			</if>
+			<if test="shopId != null">
+				#{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="marketId != null">
+				#{marketId,jdbcType=INTEGER},
+			</if>
+			<if test="normsId != null">
+				#{normsId,jdbcType=INTEGER},
+			</if>
+			<if test="buyNum != null">
+				#{buyNum,jdbcType=INTEGER},
+			</if>
+			<if test="normsPrice != null">
+				#{normsPrice,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<delete id="CpzBuyerShoppingDelete" parameterType="CpzBuyerShoppingBean">
+		delete from t_cpz_buyer_shopping		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="shopCarId != null">
+				shopCarId=#{shopCarId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</delete>
+
+	<update id="CpzBuyerShoppingUpdate" parameterType="CpzBuyerShoppingBean">
+		update t_cpz_buyer_shopping
+		<set>
+			<if test="userId != null">
+				userId=#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="shopProductId != null">
+				shopProductId=#{shopProductId,jdbcType=INTEGER},
+			</if>
+			<if test="shopId != null">
+				shopId=#{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="marketId != null">
+				marketId=#{marketId,jdbcType=INTEGER},
+			</if>
+			<if test="normsId != null">
+				normsId=#{normsId,jdbcType=INTEGER},
+			</if>
+			<if test="buyNum != null">
+				buyNum=#{buyNum,jdbcType=INTEGER},
+			</if>
+			<if test="normsPrice != null">
+				normsPrice=#{normsPrice,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				createTime=#{createTime,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				remark=#{remark,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where 
+<trim  suffix="" suffixOverrides="and">
+			<if test="shopCarId != null">
+				shopCarId=#{shopCarId,jdbcType=INTEGER} and 
+			</if>
+</trim>
+	</update>
+</mapper>
+

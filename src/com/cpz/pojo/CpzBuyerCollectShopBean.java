@@ -1,4 +1,4 @@
-package com.cpz.pojo;
+package com.company.pojo;
 //买家店铺收藏信息表
 public class CpzBuyerCollectShopBean {
 	public Integer userId;/**用户id*/

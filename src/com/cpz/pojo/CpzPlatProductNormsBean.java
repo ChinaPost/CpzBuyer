@@ -1,4 +1,5 @@
-package com.cpz.pojo;
+package com.company.pojo;
+//平台商品规格表
 public class CpzPlatProductNormsBean {
 	public Integer normsId;/**规格代号*/
 	public Integer productId;/**商品代号*/
