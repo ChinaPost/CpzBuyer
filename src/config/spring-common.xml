@@ -17,7 +17,7 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://120.76.232.114:3306/gspdb" />
+		<property name="url" value="jdbc:mysql://120.76.232.114:3306/gspdb?useUnicode=true&amp;characterEncoding=utf-8" />
 		<property name="username" value="gsp" />
 		<property name="password" value="123456" />
 	</bean>

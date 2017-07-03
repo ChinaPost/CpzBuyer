@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cpz.dao.impl.BuyerProductProductlistMapper">
+	<resultMap id="BuyerProductProductlistResultMap" type="com.cpz.pojo.BuyerProductProductlistBean">
+<result column="productID" property="productID" />
+<result column="productName" property="productName" />
+<result column="productType" property="productType" />
+<result column="productStatus" property="productStatus" />
+<result column="productDetail" property="productDetail" />
+	 <collection property="cpzProductLevels" ofType="com.cpz.pojo.CpzProductLevelBean">
+<result column="productCategoryId" property="productCategoryId" />
+<result column="productCategoryName" property="productCategoryName" />
+</collection>
+	 <collection property="gspProductNormsMaps" ofType="com.cpz.pojo.GspProductNormsMapBean">
+</collection>
+	 <collection property="cpzPlatProductPics" ofType="com.cpz.pojo.CpzPlatProductPicBean">
+<result column="picName" property="picName" />
+<result column="picNorms" property="picNorms" />
+<result column="picUrl" property="picUrl" />
+</collection>
+	 <collection property="cpzPlatProductNormss" ofType="com.cpz.pojo.CpzPlatProductNormsBean">
+</collection>
+	</resultMap>
+	<select id="BuyerProductProductlistSelect" resultMap="BuyerProductProductlistResultMap" >
+select  level.productCategoryId, level.productCategoryName, product.productID, product.productName, product.productType, product.productStatus, product.productDetail, pic.picName, pic.picNorms, pic.picUrl from t_cpz_plat_product product inner join t_cpz_product_level level on level.productCategoryId=product.productCategoryId inner join t_cpz_plat_product_pic pic on pic.productId=product.productID 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="productCategoryId!= null ">
+ level.productCategoryId= #{productCategoryId}
+		</if>
+		<if test="productType!= null ">
+ and product.productType= #{productType}
+		</if>
+
+</trim>
+	</select>
+</mapper>
+

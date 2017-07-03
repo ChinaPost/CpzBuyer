@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cpz.dao.impl.BuyerProductProductdetailMapper">
+	<resultMap id="BuyerProductProductdetailResultMap" type="com.cpz.pojo.BuyerProductProductdetailBean">
+<result column="productID" property="productID" />
+<result column="productName" property="productName" />
+<result column="productType" property="productType" />
+<result column="productStatus" property="productStatus" />
+<result column="tradingUnit" property="tradingUnit" />
+<result column="productColor" property="productColor" />
+<result column="isFresh" property="isFresh" />
+<result column="sourceArea" property="sourceArea" />
+<result column="isCanRefund" property="isCanRefund" />
+<result column="isNeedSpot" property="isNeedSpot" />
+<result column="productDetail" property="productDetail" />
+<result column="supportDay" property="supportDay" />
+<result column="channelNo" property="channelNo" />
+	 <collection property="cpzProductLevels" ofType="com.cpz.pojo.CpzProductLevelBean">
+<result column="productCategoryId" property="productCategoryId" />
+<result column="productCategoryName" property="productCategoryName" />
+<result column="parentId" property="parentId" />
+<result column="parentName" property="parentName" />
+<result column="productCategoryGrade" property="productCategoryGrade" />
+<result column="path" property="path" />
+</collection>
+	 <collection property="gspProductNormsMaps" ofType="com.cpz.pojo.GspProductNormsMapBean">
+</collection>
+	 <collection property="cpzPlatProductPics" ofType="com.cpz.pojo.CpzPlatProductPicBean">
+<result column="picName" property="picName" />
+<result column="picShowNo" property="picShowNo" />
+<result column="picNorms" property="picNorms" />
+<result column="picUrl" property="picUrl" />
+</collection>
+	 <collection property="cpzPlatProductNormss" ofType="com.cpz.pojo.CpzPlatProductNormsBean">
+<result column="normsId" property="normsId" />
+<result column="normsName" property="normsName" />
+</collection>
+	</resultMap>
+	<select id="BuyerProductProductdetailSelect" resultMap="BuyerProductProductdetailResultMap" >
+select  level.productCategoryId, level.productCategoryName, level.parentId, level.parentName, level.productCategoryGrade, level.path, product.productID, product.productName, product.productType, product.productStatus, product.tradingUnit, product.productColor, product.isFresh, product.sourceArea, product.isCanRefund, product.isNeedSpot, product.productDetail, product.supportDay, product.channelNo, pic.picName, pic.picShowNo, pic.picNorms, pic.picUrl, norms.normsId, norms.normsName from t_cpz_plat_product product inner join t_cpz_product_level level on level.productCategoryId=product.productCategoryId inner join t_cpz_plat_product_pic pic on pic.productId=product.productID inner join t_cpz_plat_product_norms norms on norms.productId=product.productID 
+<trim prefix="WHERE" prefixOverrides="AND |OR ">
+ 		<if test="productID!= null ">
+ product.productID= #{productID}
+		</if>
+
+</trim>
+	</select>
+</mapper>
+
