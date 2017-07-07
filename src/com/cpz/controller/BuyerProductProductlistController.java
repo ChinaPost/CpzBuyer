@@ -16,7 +16,7 @@ import com.framework.controller.BaseController;
 import com.framework.utils.CommonUtil;
 import com.framework.utils.Constant;
 
-/**菜品或者套餐列表查询（菜品分类点更多）*/
+/**4.2.2.2菜品或者套餐列表查询（菜品分类点更多）*/
 @Controller
 @Scope("prototype")
 @RequestMapping("/buyerproductproductlist")
